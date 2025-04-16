@@ -300,7 +300,7 @@ const certifications = {
       alt_name: "forage",
       color_code: "#47A048",
     },
-    {
+   /*  {
       title: "Sequence Models",
       subtitle: "deeplearning.ai",
       logo_path: "deeplearning_ai_logo.png",
@@ -317,7 +317,7 @@ const certifications = {
         "https://www.coursera.org/account/accomplishments/verify/U8BLDNUT9UUM",
       alt_name: "deeplearning.ai",
       color_code: "#2AAFED",
-    },
+    }, */
 
   ],
 };
@@ -503,7 +503,7 @@ const contactPageData = {
     title: "Blogs",
     subtitle:
       "I don't blog frequently but when I do something awesome, I do try my best to write a blog about it.",
-    link: "https://medium.com/@hrishipatel99",
+    link: "https://medium.com/",
     avatar_image_path: "blogs_image.svg",
   },
 };
