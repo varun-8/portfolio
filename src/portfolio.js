@@ -17,7 +17,7 @@ const greeting = {
   subTitle:
     "Full Stack Developer,  Cyber Security Enthusiast. Always learning.",
   resumeLink:
-    "https://drive.google.com/file/d/1kcvW8P65jWZFeKR6Jopf3nrQLA1qJCwn/view?usp=sharing",
+    "https://drive.google.com/file/d/1ueM_xJNMoTMnZ_drxuKmZj55jOZeyBJB/view?usp=sharing",
   mail: "mailto:varunsiva88@gmail.com",
 };
 
