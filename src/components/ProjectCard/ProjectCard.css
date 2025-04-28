@@ -1,96 +1,125 @@
 .repo-stats {
   display: flex;
-  -webkit-box-pack: justify;
   justify-content: space-between;
-  font-size: 13px;
-  color: rgb(106, 115, 125);
+  font-size: 14px;
+  color: #6a737d;
+  margin-top: 1rem;
+  gap: 1rem;
 }
 
 .repo-left-stat {
-  -webkit-box-flex: 1;
   flex-grow: 1;
   display: flex;
+  gap: 1rem;
 }
 
 .language-color {
-  width: 10px;
-  height: 10px;
-  background-color: blue;
-  margin-right: 0.25rem;
-  border-radius: 100%;
+  width: 12px;
+  height: 12px;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.language-color:hover {
+  transform: scale(1.2);
 }
 
 .repo-left-stat span {
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
-  margin-right: 0.75rem;
+  margin-right: 1rem;
 }
 
 .repo-name-div {
   display: flex;
   align-items: center;
+  margin-bottom: 0.75rem;
 }
 
 .repo-svg {
   margin-right: 0.5rem;
   min-width: 16px;
+  fill: #586069;
+  transition: fill 0.3s ease;
 }
 
 .repo-name {
   white-space: nowrap;
-  line-height: 1.1;
   text-overflow: ellipsis;
-  color: rgb(36, 41, 46);
-  font-family: "Google Sans Regular";
-  margin-bottom: 0.75rem;
-  font-size: 25px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
   overflow: hidden;
-  margin: 0px;
+  color: #24292e;
+  font-family: "Google Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin: 0;
+  transition: color 0.3s ease;
 }
 
 .repo-star-svg {
   margin-right: 0.3rem;
+  fill: #586069;
 }
 
 .repo-description {
   word-wrap: break-word;
   text-align: left;
+  font-family: "Google Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  color: #586069;
+  line-height: 1.5;
+  margin: 0.5rem 0;
   display: -webkit-box;
-  font-family: "Google Sans Regular";
-  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Modern standard for broader support */
+  line-clamp: 3;
+  /* Fallback for unsupported browsers */
+  max-height: 4.5em; /* Approximate height for 3 lines */
 }
 
 .repo-details {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  gap: 1rem;
 }
 
 .repo-creation-date {
   margin: 0;
-  font-family: "Google Sans Regular";
+  font-family: "Google Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 400;
-  margin-left: 0px;
-  margin-right: auto;
+  font-size: 14px;
+  color: #6a737d;
 }
 
 @media (max-width: 768px) {
   .repo-name {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .repo-description {
     font-size: 14px;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    max-height: 3em; /* Approximate height for 2 lines */
   }
 
   .repo-details {
     flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .repo-stats {
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
   .repo-creation-date {
-    font-size: 14px;
+    font-size: 13px;
   }
 }

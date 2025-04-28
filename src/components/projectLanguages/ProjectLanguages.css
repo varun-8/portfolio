@@ -1,35 +1,80 @@
 .dev-icons-languages {
-  padding-left: 0;
+  padding: 0;
   list-style: none;
-  font-size: 2rem;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  text-align: right;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin: 0;
 }
 
 .software-skill-inline-languages {
-  display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 0px;
-  font-family: "Google Sans Regular";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.software-skill-inline-languages:hover {
+  transform: scale(1.15);
+  opacity: 0.9;
+}
+
+.software-skill-inline-languages .iconify {
+  width: 24px;
+  height: 24px;
 }
 
 #tooltip-top > .tooltip-inner {
-  background-color: #fff;
-  color: #000;
-  border: 1px solid #062e56;
-  border-radius: 5px;
-  padding: 2.5px;
-  margin-bottom: 2px;
+  background-color: #ffffff;
+  color: #24292e;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-family: "Google Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 #tooltip-top > .tooltip-arrow {
-  border-top: 5px solid #062e56;
+  border-top: 5px solid #e1e4e8;
+}
+
+#tooltip-top.show > .tooltip-inner {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+#tooltip-top > .tooltip-inner::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border: 5px solid transparent;
+  border-top-color: #ffffff;
 }
 
 @media (max-width: 768px) {
+  .dev-icons-languages {
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
   .software-skill-inline-languages {
-    margin-right: 10px;
-    margin-bottom: 0px;
+    font-size: 1.25rem;
+  }
+
+  .software-skill-inline-languages .iconify {
+    width: 20px;
+    height: 20px;
+  }
+
+  #tooltip-top > .tooltip-inner {
+    font-size: 11px;
+    padding: 4px 8px;
   }
 }
