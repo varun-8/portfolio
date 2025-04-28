@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 14px;
-  color: #6a737d;
+  color: #9ca3af; /* Medium grey for stats */
   margin-top: 1rem;
   gap: 1rem;
 }
@@ -40,7 +40,7 @@
 .repo-svg {
   margin-right: 0.5rem;
   min-width: 16px;
-  fill: #586069;
+  fill: #d1d5db; /* Light grey for icons */
   transition: fill 0.3s ease;
 }
 
@@ -48,7 +48,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  color: #24292e;
+  color: #ffffff; /* White for heading */
   font-family: "Google Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 24px;
   font-weight: 600;
@@ -59,7 +59,7 @@
 
 .repo-star-svg {
   margin-right: 0.3rem;
-  fill: #586069;
+  fill: #d1d5db;
 }
 
 .repo-description {
@@ -67,7 +67,7 @@
   text-align: left;
   font-family: "Google Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
-  color: #586069;
+  color: #d1d5db; /* Light grey for description in dark mode */
   line-height: 1.5;
   margin: 0.5rem 0;
   display: -webkit-box;
@@ -75,10 +75,8 @@
   -webkit-line-clamp: 3;
   overflow: hidden;
   text-overflow: ellipsis;
-  /* Modern standard for broader support */
   line-clamp: 3;
-  /* Fallback for unsupported browsers */
-  max-height: 4.5em; /* Approximate height for 3 lines */
+  max-height: 4.5em; /* Fallback for 3 lines */
 }
 
 .repo-details {
@@ -90,10 +88,10 @@
 
 .repo-creation-date {
   margin: 0;
-  font-family: "Google Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "CafeSans", -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: #6a737d;
+  color: #9ca3af; /* Medium grey */
 }
 
 @media (max-width: 768px) {
@@ -105,7 +103,7 @@
     font-size: 14px;
     -webkit-line-clamp: 2;
     line-clamp: 2;
-    max-height: 3em; /* Approximate height for 2 lines */
+    max-height: 3em;
   }
 
   .repo-details {

@@ -11,16 +11,17 @@ export default function ProjectCard({ repo: project, theme }) {
   }
 
   const styles = style({
-    color: "rgb(88, 96, 105)",
-    backgroundColor: "rgb(255, 255, 255)",
-    boxShadow: "rgba(0, 0, 0, 0.2) 0px 10px 30px -15px",
+    color: "#d1d5db", // Default text color (light grey)
+    backgroundColor: "#1a1a1a", // Near-black for dark mode
+    boxShadow: "rgba(0, 0, 0, 0.3) 0px 10px 30px -15px",
     padding: "2rem",
     cursor: "pointer",
-    borderRadius: "5px",
+    borderRadius: "8px",
     height: "100%",
-    transition: "all 0.2s ease-in-out",
+    transition: "all 0.3s ease-in-out",
     ":hover": {
-      boxShadow: `${theme.imageDark} 0 2px 15px`,
+      boxShadow: `${theme.imageDark} 0 4px 20px`,
+      transform: "translateY(-4px)",
     },
   });
 
@@ -34,11 +35,11 @@ export default function ProjectCard({ repo: project, theme }) {
           style={{ backgroundColor: theme.projectCard }}
         >
           <div className="repo-name-div">
-            <p className="repo-name" style={{ color: theme.text }}>
+            <p className="repo-name">
               {project.name}
             </p>
           </div>
-          <p className="repo-description" style={{ color: theme.text }}>
+          <p className="repo-description">
             {project.description}
           </p>
           <div className="repo-details">
