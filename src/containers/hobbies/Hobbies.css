@@ -77,11 +77,66 @@
   color: var(--accent);
   background: var(--surface);
   border: 1px solid var(--border);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .hobby-card:hover .hobby-icon {
-  transform: rotate(-8deg) scale(1.08);
+  transform: scale(1.06);
+  border-color: var(--accent);
+}
+
+/* hover motion that fits each hobby */
+.hobby-card[data-visual="test"]:hover .hobby-icon i {
+  animation: hv-shake 0.6s ease-in-out;
+}
+
+.hobby-card[data-visual="code"]:hover .hobby-icon i {
+  animation: hv-hop 0.6s ease;
+}
+
+.hobby-card[data-visual="music"]:hover .hobby-icon i {
+  animation: hv-beat 0.8s ease-in-out infinite;
+}
+
+@keyframes hv-shake {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-16deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
+  75% {
+    transform: rotate(-6deg);
+  }
+}
+
+@keyframes hv-hop {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(-6px);
+  }
+  80% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes hv-beat {
+  0%,
+  60%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.25);
+  }
 }
 
 .hobby-title {
@@ -100,9 +155,51 @@
   color: var(--muted);
 }
 
-/* ---------- shared mono text for the mini scenes ---------- */
-.hv-term code,
-.hv-editor code {
+/* ==========================================================
+   Mini scenes. Base styles show the FINISHED scene (that's what
+   reduced-motion users and not-yet-visible cards see); the
+   animations only run while the card has .is-active.
+   ========================================================== */
+
+/* shared window chrome */
+.hv-term,
+.hv-editor {
+  width: 100%;
+  max-width: 290px;
+  padding: 10px 14px 12px;
+  border-radius: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 24px -18px var(--shadow);
+}
+
+.hv-win-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.hv-win-bar > span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.hv-win-bar > span:first-child {
+  background: var(--accent);
+}
+
+.hv-win-title {
+  margin-left: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-style: normal;
+  color: var(--muted);
+}
+
+.hv-scene-body code {
   display: block;
   font-family: var(--font-mono);
   font-size: 13px;
@@ -112,31 +209,14 @@
   background: none;
 }
 
-/* terminal (testing open-source apps) */
-.hv-term {
-  width: 100%;
-  max-width: 280px;
-  padding: 10px 14px 12px;
-  border-radius: 10px;
-  background: var(--card);
-  border: 1px solid var(--border);
-}
-
-.hv-term-bar {
-  display: flex;
-  gap: 5px;
-  margin-bottom: 8px;
-}
-
-.hv-term-bar span {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--border);
-}
-
-.hv-term-bar span:first-child {
-  background: var(--accent);
+/* text that types itself (see <Typed> in Hobbies.js) */
+.hv-type {
+  display: inline-block;
+  vertical-align: bottom;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid transparent; /* the typing caret */
+  /* widths are "N characters + the 2px caret" (box-sizing is border-box) */
 }
 
 .hv-prompt {
@@ -144,48 +224,7 @@
 }
 
 .hv-ok {
-  color: var(--success) !important;
-}
-
-/* lines appear one after another, hold, then reset (loops) */
-.hv-line {
-  opacity: 0;
-  animation: hv-line 6s ease infinite;
-}
-
-.hv-line.l2 {
-  animation-delay: 0.8s;
-}
-
-.hv-line.l3 {
-  animation-delay: 1.6s;
-}
-
-@keyframes hv-line {
-  0% {
-    opacity: 0;
-    transform: translateX(-6px);
-  }
-  8%,
-  80% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  92%,
-  100% {
-    opacity: 0;
-  }
-}
-
-/* editor (vibe coding) */
-.hv-editor {
-  width: 100%;
-  max-width: 290px;
-  padding: 14px 16px;
-  border-radius: 10px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
+  color: var(--success);
 }
 
 .hv-kw {
@@ -197,93 +236,395 @@
 }
 
 .hv-cm {
-  color: var(--muted) !important;
+  color: var(--muted);
   font-style: italic;
 }
 
-.hv-cursor {
-  display: inline-block;
-  width: 7px;
-  height: 15px;
-  margin-left: 3px;
-  vertical-align: -2px;
-  background: var(--accent);
-  animation: hv-blink 1s steps(1) infinite;
+/* whole scene fades out at the end of each loop, then starts over */
+.is-active .hv-scene-body {
+  animation: hv-reset 8s ease infinite;
 }
 
-@keyframes hv-blink {
-  50% {
+@keyframes hv-reset {
+  0%,
+  88% {
+    opacity: 1;
+  }
+  95%,
+  100% {
     opacity: 0;
   }
 }
 
-/* equaliser (music) */
+/* ---------- 1. terminal: testing open-source apps ---------- */
+.is-active .hv-type.t1 {
+  animation-name: hv-t1;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+.is-active .hv-type.t2 {
+  animation-name: hv-t2;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+.is-active .hv-result {
+  animation: hv-pop 8s ease infinite;
+}
+
+@keyframes hv-t1 {
+  0%,
+  3% {
+    width: 0;
+    border-color: var(--accent);
+  }
+  20% {
+    width: calc(var(--chars) * 1ch + 2px);
+    border-color: var(--accent);
+  }
+  21%,
+  100% {
+    width: calc(var(--chars) * 1ch + 2px);
+    border-color: transparent;
+  }
+}
+
+@keyframes hv-t2 {
+  0%,
+  24% {
+    width: 0;
+    border-color: transparent;
+  }
+  25% {
+    width: 0;
+    border-color: var(--accent);
+  }
+  38% {
+    width: calc(var(--chars) * 1ch + 2px);
+    border-color: var(--accent);
+  }
+  39%,
+  100% {
+    width: calc(var(--chars) * 1ch + 2px);
+    border-color: transparent;
+  }
+}
+
+@keyframes hv-pop {
+  0%,
+  44% {
+    opacity: 0;
+    transform: translateY(4px) scale(0.96);
+  }
+  49%,
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- 2. editor: vibe coding with AI ---------- */
+.hv-editor {
+  border-left: 3px solid var(--accent);
+}
+
+.hv-ai-badge {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  background: var(--accent);
+}
+
+.hv-spark {
+  display: inline-block;
+}
+
+.is-active .hv-spark {
+  animation: hv-twinkle 1.6s ease-in-out infinite;
+}
+
+@keyframes hv-twinkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35) rotate(90deg);
+    opacity: 0.7;
+  }
+}
+
+.is-active .hv-type.c1 {
+  animation-name: hv-c1;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+.is-active .hv-type.c2 {
+  animation-name: hv-c2;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+.is-active .hv-type.c3 {
+  animation-name: hv-c3;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes hv-c1 {
+  0%,
+  3% {
+    width: 0;
+    border-color: var(--accent);
+  }
+  19% {
+    width: calc(var(--chars) * 1ch + 2px);
+    border-color: var(--accent);
+  }
+  20%,
+  100% {
+    width: calc(var(--chars) * 1ch + 2px);
+    border-color: transparent;
+  }
+}
+
+@keyframes hv-c2 {
+  0%,
+  21% {
+    width: 0;
+    border-color: transparent;
+  }
+  22% {
+    width: 0;
+    border-color: var(--accent);
+  }
+  38% {
+    width: calc(var(--chars) * 1ch + 2px);
+    border-color: var(--accent);
+  }
+  39%,
+  100% {
+    width: calc(var(--chars) * 1ch + 2px);
+    border-color: transparent;
+  }
+}
+
+@keyframes hv-c3 {
+  0%,
+  41% {
+    width: 0;
+    border-color: transparent;
+  }
+  42% {
+    width: 0;
+    border-color: var(--accent);
+  }
+  50% {
+    width: calc(var(--chars) * 1ch + 2px);
+    border-color: var(--accent);
+  }
+  51%,
+  100% {
+    width: calc(var(--chars) * 1ch + 2px);
+    border-color: transparent;
+  }
+}
+
+.hv-shipped {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 0 7px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+  vertical-align: 1px;
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.is-active .hv-shipped {
+  animation: hv-ship 8s ease infinite;
+}
+
+@keyframes hv-ship {
+  0%,
+  53% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  57% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+  60%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---------- 3. music player: listening to music ---------- */
 .hv-music {
   position: relative;
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 14px;
 }
 
 .hv-eq {
   display: flex;
   align-items: flex-end;
-  gap: 6px;
-  height: 80px;
+  gap: 5px;
+  height: 62px;
 }
 
 .hv-eq span {
-  width: 8px;
+  width: 7px;
   height: 100%;
   border-radius: 4px;
   background: linear-gradient(to top, var(--accent), var(--accent-bright));
   transform-origin: bottom;
-  animation: hv-eq 1.1s ease-in-out infinite alternate;
+  transform: scaleY(0.6);
+}
+
+.hv-eq span:nth-child(3n) {
+  transform: scaleY(0.9);
 }
 
 .hv-eq span:nth-child(even) {
-  animation-duration: 0.85s;
-  opacity: 0.8;
+  opacity: 0.75;
+}
+
+.is-active .hv-eq span {
+  animation: hv-eq 1.05s ease-in-out infinite alternate;
+}
+
+.is-active .hv-eq span:nth-child(even) {
+  animation-duration: 0.8s;
 }
 
 @keyframes hv-eq {
   0% {
-    transform: scaleY(0.2);
+    transform: scaleY(0.18);
   }
   100% {
     transform: scaleY(1);
   }
 }
 
+.hv-player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 70%;
+  max-width: 220px;
+  font-size: 10px;
+  color: var(--accent);
+}
+
+.hv-track {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.hv-progress {
+  display: block;
+  width: 45%;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.is-active .hv-progress {
+  animation: hv-progress 8s linear infinite;
+}
+
+@keyframes hv-progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* notes drift up out of the speaker and fade */
 .hv-note {
   position: absolute;
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 1;
   color: var(--muted);
-  animation: hv-note 4s ease-in-out infinite;
+  opacity: 0.6;
 }
 
 .hv-note.n1 {
-  left: 18%;
-  top: 30%;
+  left: 14%;
+  bottom: 38%;
 }
 
 .hv-note.n2 {
-  right: 18%;
-  top: 22%;
-  animation-delay: -2s;
+  right: 15%;
+  bottom: 46%;
+  color: var(--accent);
 }
 
-@keyframes hv-note {
-  0%,
-  100% {
-    transform: translateY(0) rotate(-6deg);
-    opacity: 0.4;
+.hv-note.n3 {
+  left: 24%;
+  bottom: 62%;
+}
+
+.is-active .hv-note {
+  animation: hv-rise 3.6s ease-in infinite;
+}
+
+.is-active .hv-note.n2 {
+  animation-delay: -1.2s;
+}
+
+.is-active .hv-note.n3 {
+  animation-delay: -2.4s;
+}
+
+@keyframes hv-rise {
+  0% {
+    transform: translateY(26px) rotate(-12deg);
+    opacity: 0;
   }
-  50% {
-    transform: translateY(-10px) rotate(6deg);
-    opacity: 1;
+  20% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-46px) rotate(14deg);
+    opacity: 0;
+  }
+}
+
+/* reduced motion: show the finished, still scene */
+@media (prefers-reduced-motion: reduce) {
+  .hobby-card *,
+  .hobby-card *::before,
+  .hobby-card *::after {
+    animation: none !important;
   }
 }
 
@@ -311,6 +652,6 @@
   }
 
   .hobby-visual {
-    height: 130px;
+    height: 140px;
   }
 }

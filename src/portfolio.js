@@ -22,8 +22,8 @@ const greeting = {
     title: "Open to work",
     roles: ["SOC Analyst", "Cloud Security", "Tech Support"],
   },
-  resumeLink:
-    "https://drive.google.com/file/d/1ueM_xJNMoTMnZ_drxuKmZj55jOZeyBJB/view?usp=sharing",
+  // Resume PDF is served from /public, so it updates with every deploy
+  resumeLink: `${process.env.PUBLIC_URL}/Varun_S_SOC_Analyst_Resume.pdf`,
   mail: "mailto:varunsiva88@gmail.com",
 };
 
