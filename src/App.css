@@ -60,20 +60,6 @@
   }
 }
 
-/* Theme-adaptive accent button (used for links/buttons that must follow the theme) */
-.btn-accent {
-  background-color: var(--accent-bright);
-  color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn-accent:hover {
-  box-shadow: 0 6px 18px var(--accent-bright);
-  transform: translateY(-2px);
-}
-
 /* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,

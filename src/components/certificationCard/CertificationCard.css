@@ -34,7 +34,7 @@
   height: 160px;
   border-radius: 50%;
   background: var(--cert-color, var(--accent));
-  opacity: 0.12;
+  opacity: 0;
   filter: blur(30px);
   transition: opacity 0.4s ease, transform 0.4s ease;
   pointer-events: none;
@@ -62,7 +62,7 @@
 }
 
 .cert-card:hover .cert-glow {
-  opacity: 0.3;
+  opacity: 0.25;
   transform: scale(1.25);
 }
 

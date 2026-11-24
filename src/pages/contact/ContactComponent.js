@@ -65,19 +65,24 @@ function Contact(props) {
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2000);
     };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(value).then(done, () => {});
-    } else {
-      // older browsers
+    // fallback for older browsers or when the Clipboard API is refused
+    const legacyCopy = () => {
       const el = document.createElement("textarea");
       el.value = value;
+      el.setAttribute("readonly", "");
+      el.style.position = "fixed";
+      el.style.opacity = "0";
       document.body.appendChild(el);
       el.select();
       try {
-        document.execCommand("copy");
-        done();
+        if (document.execCommand("copy")) done();
       } catch (e) {}
       document.body.removeChild(el);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(value).then(done, legacyCopy);
+    } else {
+      legacyCopy();
     }
   };
 

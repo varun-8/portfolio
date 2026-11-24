@@ -41,19 +41,18 @@ function Projects(props) {
           <ProjectCard key={repo.name} repo={repo} theme={theme} index={i} />
         ))}
       </div>
-      <br />
-      <br />
-      <br />
-      <a
-        className="general-btn btn-accent"
-        href={socialMediaLinks.github}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        More Projects (Github)
-      </a>
-      <br />
-      <br />
+      <div className="projects-more">
+        <a
+          className="button btn-primary projects-more-btn"
+          href={socialMediaLinks.github}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="fab fa-github" aria-hidden="true"></i>
+          More projects on GitHub
+          <span className="btn-arrow">→</span>
+        </a>
+      </div>
       <Footer theme={props.theme} onToggle={props.onToggle} />
     </div>
   );
