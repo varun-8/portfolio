@@ -9,9 +9,8 @@ import ExperienceImg from "./ExperienceImg";
 
 function Experience(props) {
   const theme = props.theme;
-  console.log(props.setTheme);
   return (
-    <div className="experience-main">
+    <div className="experience-main page-transition">
       <Header theme={theme} setTheme={props.setTheme} />
       <div className="basic-experience">
         <Fade bottom duration={2000} distance="40px">

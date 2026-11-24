@@ -7,12 +7,14 @@ import Experience from "../pages/experience/Experience";
 import Contact from "../pages/contact/ContactComponent";
 import Projects from "../pages/projects/Projects";
 import { settings } from "../portfolio.js";
+import ScrollToTop from "../components/scrollToTop/ScrollToTop";
 
 export default function Main(propss) {
   if (settings.isSplash) {
     return (
       <div>
         <HashRouter basename="/">
+          <ScrollToTop />
           <Switch>
             <Route
               path="/"
@@ -94,6 +96,7 @@ export default function Main(propss) {
     return (
       <div>
         <HashRouter basename="/">
+          <ScrollToTop />
           <Switch>
             <Route
               path="/"

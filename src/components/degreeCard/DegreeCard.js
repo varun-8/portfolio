@@ -1,139 +1,67 @@
 import React from "react";
 import "./DegreeCard.css";
-import { Fade, Flip } from "react-reveal";
-import { style } from "glamor";
+import { Fade } from "react-reveal";
+
+// Strip the leading "⚡ " used in portfolio.js; the bullet is styled in CSS.
+const clean = (sentence) => sentence.replace(/^\s*⚡\s*/, "");
 
 function DegreeCard(props) {
   const degree = props.degree;
   const theme = props.theme;
+  const index = props.index || 0;
 
-  const style_img = style({
-    width: "220px",
-    height: "auto",
-    borderRadius: " 50%",
-    padding: "10px",
-    border: `1px solid ${theme.text}`,
-    marginRight: "50px",
-    boxShadow: `0px 0px 2px ${theme.text}`,
-    transition: "all 0.2s ease-in-out",
-    ":hover": {
-      color: "rgba(255, 255, 255, 1)",
-      boxShadow: `0 2px 10px ${theme.text}`,
-    },
-    "@media (max-width: 768px)": {
-      marginLeft: "50px",
-      marginBottom: "15px",
-      width: "175px",
-    },
-  });
-
-  const card_body = style({
-    border: `1px solid ${theme.text}`,
-    borderRadius: "7px",
-    width: "90%",
-    margin: "10px",
-    boxShadow: `0px 0px 1px ${theme.text}`,
-    transition: "all 0.2s ease-in-out",
-    ":hover": {
-      color: "rgba(255, 255, 255, 1)",
-      boxShadow: `0 2px 10px ${theme.text}`,
-    },
-    "@media (max-width: 768px)": {
-      width: "100%",
-    },
-  });
-
-  const button_visit = style({
-    textDecoration: "none",
-    color: "rgba(255, 255, 255, 1)",
-    background: `${theme.accentColor}`,
-    padding: "15px 15px",
-    marginTop: "25px",
-    borderRadius: "4px",
-    borderWidth: "0px",
-    marginBottom: "20px",
-    width: "200px",
-    height: "50px",
-    fontWeight: "bold",
-    fontFamily: "Google Sans Regular",
-    fontSize: "17px",
-    transition: "all 0.2s ease-in-out",
-    cursor: "pointer",
-    ":hover": {
-      color: "rgba(255, 255, 255, 1)",
-      boxShadow: `0 2px 10px ${theme.accentColor}`,
-    },
-  });
+  // Older data kept the grade inside the subtitle ("Degree — 8.29 CGPA").
+  const [degreeName, gradeFromSubtitle] = (degree.subtitle || "").split(
+    /\s+—\s+/
+  );
+  const grade = degree.grade || gradeFromSubtitle;
 
   return (
-    <div className="degree-card">
-      <Flip left duration={2000}>
-        <div {...style_img}>
+    <Fade bottom duration={900} distance="30px" delay={index * 120}>
+      <article className="degree-card">
+        <div className="degree-logo">
           <img
-            style={{
-              maxWidth: "100%",
-              maxHeight: "100%",
-              transform: "scale(50%, 50%)",
-            }}
             src={require(`../../assests/images/${degree.logo_path}`)}
             alt={degree.alt_name}
           />
         </div>
-      </Flip>
-      <Fade right duration={2000} distance="40px">
-        <div {...card_body}>
-          <div
-            className="body-header"
-            // style={{ backgroundColor: theme.accentColor }}
-          >
-            <div className="body-header-title">
-              <h2 className="card-title" style={{ color: theme.text }}>
-                {degree.title}
+
+        <div className="degree-body">
+          <header className="degree-head">
+            <div className="degree-head-text">
+              <h2 className="degree-title" style={{ color: theme.text }}>
+                {degreeName}
               </h2>
-              <h3 className="card-subtitle" style={{ color: theme.text }}>
-                {degree.subtitle}
-              </h3>
+              <p className="degree-school">{degree.title}</p>
             </div>
-            <div className="body-header-duration">
-              <h3 className="duration" style={{ color: theme.text }}>
+            <div className="degree-meta">
+              <span className="degree-duration">
+                <i className="far fa-calendar-alt" aria-hidden="true"></i>
                 {degree.duration}
-              </h3>
+              </span>
+              {grade && <span className="degree-grade">{grade}</span>}
             </div>
-          </div>
-          <div className="body-content">
-            {degree.descriptions.map((sentence) => {
-              return (
-                <p
-                  key={sentence}
-                  className="content-list"
-                  style={{ color: theme.text }}
-                >
-                  {sentence}
-                </p>
-              );
-            })}
+          </header>
+
+          <ul className="degree-points">
+            {degree.descriptions.map((sentence) => (
+              <li key={sentence}>{clean(sentence)}</li>
+            ))}
+          </ul>
+
+          {degree.website_link && (
             <a
+              className="degree-link"
               href={degree.website_link}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ textDecoration: "none", textAlign: "center" }}
             >
-              <p
-                {...button_visit}
-                style={{
-                  marginRight: "23px",
-                  textDecoration: "none",
-                  float: "right",
-                  backgroundColor: theme.accentColor,
-                }}
-              >
-                Visit Website
-              </p>
+              Visit website <span className="degree-link-arrow">→</span>
             </a>
-          </div>
+          )}
         </div>
-      </Fade>
-    </div>
+      </article>
+    </Fade>
   );
 }
 

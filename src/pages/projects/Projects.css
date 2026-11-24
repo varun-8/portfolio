@@ -32,8 +32,8 @@
 
 .projects-heading-text {
   font-size: 56px;
-  font-weight: 400;
-  font-family: "Google Sans Medium";
+  font-family: var(--font-sans);
+  font-weight: 500;
   line-height: 1.1;
   text-align: center;
   margin-top: 80px;
@@ -41,7 +41,7 @@
 
 .projects-heading-sub-text {
   font-size: 30px;
-  font-family: "Google Sans Regular";
+  font-family: var(--font-sans);
   text-align: center;
   margin-bottom: 10px;
 }
@@ -52,16 +52,25 @@
   margin-top: 0px;
   margin-left: 20px;
   margin-right: 20px;
-  font-family: "Google Sans Medium";
+  font-family: var(--font-sans);
+  font-weight: 500;
 }
 
 .repo-cards-div-main {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 1rem 1rem;
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-top: 60px;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 24px;
+  max-width: 1240px;
+  margin: 50px auto 0;
+  padding: 0 24px;
+}
+
+.repo-cards-div-main > * {
+  min-width: 0;
+}
+
+.repo-cards-div-main .react-reveal {
+  height: 100%;
 }
 
 @media (max-width: 1380px) {
@@ -97,9 +106,8 @@
   }
 
   .repo-cards-div-main {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    margin-left: 10px;
-    margin-right: 10px;
+    grid-template-columns: minmax(0, 1fr);
+    padding: 0 16px;
     margin-top: 30px;
   }
 }

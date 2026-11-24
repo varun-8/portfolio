@@ -10,18 +10,24 @@ function Educations(props) {
   return (
     <div className="main" id="educations">
       <div className="educations-header-div">
-        <Fade bottom duration={2000} distance="20px">
-          <h1 className="educations-header" style={{ color: theme.text }}>
-            Degrees Received
-          </h1>
+        <Fade bottom duration={1000} distance="20px">
+          <div>
+            <h1 className="educations-header" style={{ color: theme.text }}>
+              Degrees Received
+            </h1>
+            <span className="section-bar" aria-hidden="true" />
+          </div>
         </Fade>
       </div>
       <div className="educations-body-div">
-        {degrees.degrees.map((degree) => {
-          return (
-            <DegreeCard key={degree.title} degree={degree} theme={theme} />
-          );
-        })}
+        {degrees.degrees.map((degree, i) => (
+          <DegreeCard
+            key={degree.title}
+            degree={degree}
+            theme={theme}
+            index={i}
+          />
+        ))}
       </div>
     </div>
   );

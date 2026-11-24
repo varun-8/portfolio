@@ -1,23 +1,70 @@
 .dev-icons {
   padding-left: 0;
   list-style: none;
-  font-size: 3rem;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  text-align: center;
+  margin: 0 0 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .software-skill-inline {
-  display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  font-family: "Google Sans Regular";
+  width: 58px;
+  height: 58px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-family: var(--font-sans);
+  transition: transform 0.25s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.software-skill-inline:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 20px -10px var(--accent);
 }
 
 .software-skill-inline > i {
   color: #868e96;
 }
 
-.software-skill-inline > i:hover {
-  color: #645beb;
+@media (max-width: 900px) {
+  .dev-icons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .software-skill-inline {
+    width: 50px;
+    height: 50px;
+    font-size: 1.7rem;
+  }
+}
+
+/* Skill-name tooltip (react-bootstrap renders it; no Bootstrap CSS is loaded) */
+#tooltip-top {
+  z-index: 1000;
+  pointer-events: none;
+  padding-bottom: 6px;
+}
+
+#tooltip-top > .tooltip-inner {
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--text);
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 16px -6px var(--shadow);
+}
+
+#tooltip-top > .tooltip-arrow {
+  display: none;
 }

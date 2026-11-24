@@ -59,3 +59,52 @@
       transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 }
+
+/* Theme-adaptive accent button (used for links/buttons that must follow the theme) */
+.btn-accent {
+  background-color: var(--accent-bright);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-accent:hover {
+  box-shadow: 0 6px 18px var(--accent-bright);
+  transform: translateY(-2px);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Gentle fade-in each time a page (route) is shown */
+.page-transition {
+  animation: page-in 0.5s ease backwards;
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Short accent underline under section headings (Degrees, Certifications, Hobbies) */
+.section-bar {
+  display: inline-block;
+  width: 56px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--accent);
+}

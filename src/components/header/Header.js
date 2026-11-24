@@ -1,78 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.css";
 import { Fade } from "react-reveal";
 import { NavLink, Link } from "react-router-dom";
-import { greeting, settings } from "../../portfolio.js";
 import { CgSun } from "react-icons/cg/";
 import { HiMoon } from "react-icons/hi";
-import { style } from "glamor";
 
 function Header(props) {
   const theme = props.theme;
 
-  const styles = style({
-    cursor: "pointer",
-    height: "45px",
-    width: "45px",
-    marginRight: "5px",
-    marginLeft: "15px",
-    paddingTop: "5px",
-    borderRadius: "50%",
-    border: "none",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: props.theme.name === "light" ? "#7CD1F7" : "#292C3F",
-    outline: "none",
-    transition: "all 0.2s ease-in-out",
-    ":hover": {
-      boxShadow: `0 3px 8px ${
-        props.theme.name === "light" ? "#F7D774" : "#646464"
-      }`,
-    },
-  });
-
-  const link = settings.isSplash ? "/splash" : "home";
-
-  const [currTheme, setCurrTheme] = useState(props.theme);
-
   function changeTheme() {
-    if (currTheme === "light") {
-      props.setTheme("dark");
-      localStorage.setItem("theme", "dark");
-      setCurrTheme("dark");
-    } else {
-      props.setTheme("light");
-      localStorage.setItem("theme", "light");
-      setCurrTheme("light");
-    }
+    const next = props.theme.name === "dark" ? "light" : "dark";
+    // cross-fade colours instead of snapping between themes
+    const root = document.documentElement;
+    root.classList.add("theme-transition");
+    window.clearTimeout(window.__themeFadeTimer);
+    window.__themeFadeTimer = window.setTimeout(
+      () => root.classList.remove("theme-transition"),
+      450
+    );
+    props.setTheme(next);
+    try {
+      localStorage.setItem("theme-pref", next);
+    } catch (e) {}
   }
 
-  const icon =
-    props.theme.name === "dark" ? (
-      <HiMoon
-        strokeWidth={1}
-        size={20}
-        color={props.theme.name === "light" ? "#F9D784" : "#A7A7A7"}
-      />
-    ) : (
-      <CgSun
-        strokeWidth={1}
-        size={20}
-        color={props.theme.name === "light" ? "#F9D784" : "#A7A7A7"}
-      />
-    );
+  const isDark = props.theme.name === "dark";
+  const icon = isDark ? (
+    <HiMoon size={19} color={theme.text} />
+  ) : (
+    <CgSun size={20} color={theme.text} />
+  );
 
   return (
     <Fade top duration={1000} distance="20px">
       <div>
         <header className="header">
-          <NavLink to={link} tag={Link} className="logo">
-            <span style={{ color: theme.text }}></span>
-            <span className="logo-name" style={{ color: theme.text }}>
-              {greeting.logo_name}
-            </span>
-            <span style={{ color: theme.text }}></span>
-          </NavLink>
           <input className="menu-btn" type="checkbox" id="menu-btn" />
           <label className="menu-icon" htmlFor="menu-btn">
             <span className="navicon"></span>
@@ -83,7 +45,7 @@ function Header(props) {
                 className="homei"
                 to="/home"
                 tag={Link}
-                activeStyle={{ fontWeight: "bold" }}
+                activeClassName="nav-active"
                 style={{ borderRadius: 5, color: theme.text }}
               >
                 Home
@@ -94,7 +56,7 @@ function Header(props) {
                 className="ec"
                 to="/education"
                 tag={Link}
-                activeStyle={{ fontWeight: "bold" }}
+                activeClassName="nav-active"
                 style={{ borderRadius: 5, color: theme.text }}
               >
                 Education and Certifications
@@ -105,7 +67,7 @@ function Header(props) {
                 className="xp"
                 to="/experience"
                 tag={Link}
-                activeStyle={{ fontWeight: "bold" }}
+                activeClassName="nav-active"
                 style={{ borderRadius: 5, color: theme.text }}
               >
                 Experience
@@ -116,7 +78,7 @@ function Header(props) {
                 className="projects"
                 to="/projects"
                 tag={Link}
-                activeStyle={{ fontWeight: "bold" }}
+                activeClassName="nav-active"
                 style={{ borderRadius: 5, color: theme.text }}
               >
                 Projects
@@ -127,14 +89,21 @@ function Header(props) {
                 className="cr"
                 to="/contact"
                 tag={Link}
-                activeStyle={{ fontWeight: "bold" }}
+                activeClassName="nav-active"
                 style={{ borderRadius: 5, color: theme.text }}
               >
                 Contact and Resume
               </NavLink>
             </li>
-           
-            <button {...styles} onClick={changeTheme}>
+
+            <button
+              className="theme-toggle"
+              onClick={changeTheme}
+              aria-label={
+                isDark ? "Switch to light theme" : "Switch to dark theme"
+              }
+              title={isDark ? "Switch to light theme" : "Switch to dark theme"}
+            >
               {icon}
             </button>
           </ul>

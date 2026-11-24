@@ -1,85 +1,70 @@
 .social-media-div {
-  font-size: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 4px 0 18px;
 }
 
-.icon-button i {
-  color: white;
-}
 .icon-button {
-  margin-bottom: 10px;
+  text-decoration: none;
 }
 
+/* Theme-adaptive base; each network fills with its brand colour on hover */
 .icon-button i {
-  border-radius: 2.6rem;
-  cursor: pointer;
+  width: 2.8rem;
+  height: 2.8rem;
+  line-height: 2.8rem;
   display: inline-block;
-  font-size: 1.3rem;
-  height: 2.6rem;
-  line-height: 2.6rem;
-  margin: 0 5px;
-  position: relative;
   text-align: center;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  font-size: 1.25rem;
+  border-radius: 50%;
+  cursor: pointer;
   user-select: none;
-  width: 2.6rem;
-  margin-bottom: 10px;
+  color: var(--text);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  transition: all 0.25s ease;
 }
 
-.linkedin i {
+.icon-button:hover i,
+.icon-button:focus-visible i {
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.github:hover i {
+  background-color: #6e5494;
+  border-color: #6e5494;
+  box-shadow: 0 8px 18px -6px #6e5494;
+}
+
+.linkedin:hover i {
   background-color: #0e76a8;
-  transition: all 0.2s ease-in-out;
+  border-color: #0e76a8;
+  box-shadow: 0 8px 18px -6px #0e76a8;
 }
 
-.linkedin i:hover {
-  color: rgba(255, 255, 255, 1);
-  box-shadow: 0 5px 15px #0e76a8;
-}
-
-.github i {
-  background-color: #333;
-  transition: all 0.2s ease-in-out;
-}
-
-.github i:hover {
-  color: rgba(255, 255, 255, 1);
-  box-shadow: 0 5px 15px #333;
-}
-
-.google i {
+.google:hover i {
   background-color: #ea4335;
-  transition: all 0.2s ease-in-out;
+  border-color: #ea4335;
+  box-shadow: 0 8px 18px -6px #ea4335;
 }
 
-.google i:hover {
-  color: rgba(255, 255, 255, 1);
-  box-shadow: 0 5px 15px #ea4335;
-}
-
-.twitter i {
+.twitter:hover i {
   background-color: #1da1f2;
-  transition: all 0.2s ease-in-out;
+  border-color: #1da1f2;
+  box-shadow: 0 8px 18px -6px #1da1f2;
 }
 
-.twitter i:hover {
-  color: rgba(255, 255, 255, 1);
-  box-shadow: 0 5px 15px #1da1f2;
-}
-
-.instagram i {
+.instagram:hover i {
   background-color: #e4405f;
-  transition: all 0.2s ease-in-out;
-}
-
-.instagram i:hover {
-  color: rgba(255, 255, 255, 1);
-  box-shadow: 0 5px 15px #e4405f;
+  border-color: #e4405f;
+  box-shadow: 0 8px 18px -6px #e4405f;
 }
 
 /* Media Query */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .social-media-div {
-    text-align: center;
+    justify-content: center;
   }
 }

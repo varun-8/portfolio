@@ -10,7 +10,7 @@ import { Fade } from "react-reveal";
 function Education(props) {
   const theme = props.theme;
   return (
-    <div className="education-main">
+    <div className="education-main page-transition">
       <Header theme={props.theme} setTheme={props.setTheme} />
       <div className="basic-education">
         <Fade bottom duration={2000} distance="40px">
@@ -23,14 +23,15 @@ function Education(props) {
                 Education
               </h1>
               <h3 className="heading-sub-text" style={{ color: theme.text }}>
-                Basic Qualification and Certifications
+                Academic Qualifications & Certifications
               </h3>
               <p
                 className="experience-header-detail-text subTitle"
                 style={{ color: theme.secondaryText }}
               >
-                I actively participate in hackathons and other tech-related
-                activities. Below are some of my major certifications.
+                Formal academic foundation in Information Systems and Computer
+                Applications, supplemented by industry certifications in
+                Cybersecurity, Cloud Infrastructure, and AI.
               </p>
             </div>
           </div>

@@ -1,60 +1,191 @@
-/* Change this file to get your personal Porfolio */
+/* Portfolio Data - Varun S */
 
 // Website related settings
 const settings = {
-  isSplash: false, // Change this to true if you want to use the splash screen.
-  useCustomCursor: true, // Change this to false if you want the good'ol cursor
+  isSplash: false, // Splash screen disabled for direct fast access
+  useCustomCursor: true,
   googleTrackingID: "UA-174238252-2",
 };
 
-//Home Page
+// Home Page / Hero
 const greeting = {
   title: "Hello.",
   title2: "Varun",
-  logo_name: "Varun.p()",
+  logo_name: "Varun.s()",
   nickname: "",
   full_name: "Varun S",
-  subTitle:
-    "Full Stack Developer,  Cyber Security Enthusiast. Always learning.",
+  subTitle: "SOC Analyst & Junior Cloud Security Engineer",
+  tagline:
+    "I monitor logs for threats, harden Linux and AWS infrastructure, and build secure web apps.",
+  // "Open to work" status card shown on the hero illustration
+  status: {
+    title: "Open to work",
+    roles: ["SOC Analyst", "Cloud Security", "Tech Support"],
+  },
   resumeLink:
     "https://drive.google.com/file/d/1ueM_xJNMoTMnZ_drxuKmZj55jOZeyBJB/view?usp=sharing",
   mail: "mailto:varunsiva88@gmail.com",
 };
 
 const socialMediaLinks = {
-  /* Your Social Media Link */
-  github: "https://github.com/varun-8 ",
-  linkedin: "www.linkedin.com/in/varuns2003",
+  github: "https://github.com/varun-8",
+  linkedin: "https://www.linkedin.com/in/varrrun",
   gmail: "varunsiva88@gmail.com",
-  gitlab: " ",
-  facebook: " ",
-  twitter: "https://twitter.com/hrishi_55",
-  instagram: "https://www.instagram.com/ft.varuuun/",
 };
 
 const skills = {
   data: [
     {
-      title: "Full Stack Devolopment",
-      fileName: "FullStackImg",
+      title: "Security Operations & SIEM",
+      fileName: "DataScienceImg",
       skills: [
-        "⚡ Building responsive website front end using ReactJS and Angular",
-        "⚡ Developing mobile applications using Flutter and native Android",
-        "⚡ Backend development using NodeJS, ExpressJS and Flask",
+        "⚡ Indexing, searching, and building threat monitoring dashboards in Splunk SIEM for brute-force and anomaly detection",
+        "⚡ Packet-level traffic inspection, handshake analysis, and protocol security auditing using Wireshark",
+        "⚡ Network vulnerability scanning, port auditing, and service reconnaissance with Nmap, Nessus, and Burp Suite",
+        "⚡ Incident triage, log review, and hands-on defense aligning with the incident response lifecycle and OWASP Top 10",
       ],
       softwareSkills: [
         {
-          skillName: "HTML5",
-          fontAwesomeClassname: "simple-icons:html5",
+          skillName: "Splunk",
+          fontAwesomeClassname: "mdi:chevron-right-box",
           style: {
-            color: "#E34F26",
+            color: "#ED2939",
           },
         },
         {
-          skillName: "CSS3",
-          fontAwesomeClassname: "fa-css3",
+          skillName: "Wireshark",
+          fontAwesomeClassname: "simple-icons:wireshark",
           style: {
-            color: "#1572B6",
+            color: "#1679A7",
+          },
+        },
+        {
+          skillName: "Kali Linux",
+          fontAwesomeClassname: "simple-icons:kalilinux",
+          style: {
+            color: "#557C94",
+          },
+        },
+        {
+          skillName: "Burp Suite",
+          fontAwesomeClassname: "simple-icons:burpsuite",
+          style: {
+            color: "#FF6633",
+          },
+        },
+        {
+          skillName: "Linux CLI",
+          fontAwesomeClassname: "simple-icons:linux",
+          style: {
+            color: "#FCC624",
+          },
+        },
+        {
+          skillName: "Bash",
+          fontAwesomeClassname: "simple-icons:gnubash",
+          style: {
+            color: "#4EAA25",
+          },
+        },
+        {
+          skillName: "Python",
+          fontAwesomeClassname: "logos:python",
+          style: {
+            color: "#3776AB",
+          },
+        },
+      ],
+    },
+    {
+      title: "Cloud, Systems & DevSecOps",
+      fileName: "CloudInfraImg",
+      skills: [
+        "⚡ Cloud infrastructure deployment and security provisioning on AWS (EC2, S3, VPC, Security Groups, CloudWatch)",
+        "⚡ Enforcing IAM least-privilege policies, access control boundaries, and credential hygiene",
+        "⚡ Containerizing applications with Docker and establishing automated GitHub Actions CI/CD with security scanning",
+        "⚡ Production Linux server hardening (Debian/Ubuntu), UFW/iptables, SSH key authentication, and SSL/TLS with Let's Encrypt",
+      ],
+      softwareSkills: [
+        {
+          skillName: "AWS",
+          fontAwesomeClassname: "simple-icons:amazonaws",
+          style: {
+            color: "#FF9900",
+          },
+        },
+        {
+          skillName: "Docker",
+          fontAwesomeClassname: "simple-icons:docker",
+          style: {
+            color: "#2496ED",
+          },
+        },
+        {
+          skillName: "GitHub Actions",
+          fontAwesomeClassname: "simple-icons:githubactions",
+          style: {
+            color: "#2088FF",
+          },
+        },
+        {
+          skillName: "Nginx",
+          fontAwesomeClassname: "simple-icons:nginx",
+          style: {
+            color: "#009639",
+          },
+        },
+        {
+          skillName: "Ubuntu",
+          fontAwesomeClassname: "simple-icons:ubuntu",
+          style: {
+            color: "#E95420",
+          },
+        },
+        {
+          skillName: "Git",
+          fontAwesomeClassname: "simple-icons:git",
+          style: {
+            color: "#F05032",
+          },
+        },
+      ],
+    },
+    {
+      title: "AI-Assisted Development & Secure Apps",
+      fileName: "FullStackImg",
+      skills: [
+        "⚡ Rapid application development and prototyping using AI-assisted engineering workflows (Claude, Gemini, OpenAI)",
+        "⚡ End-to-end security code reviews: enforcing JWT authentication, RBAC, schema validation, and bcrypt hashing",
+        "⚡ Developing cross-platform solutions with React, Node.js, Express, and MongoDB",
+        "⚡ Secure API integration, provider failover architecture, and strict data sanitization before and after model calls",
+      ],
+      softwareSkills: [
+        {
+          skillName: "React",
+          fontAwesomeClassname: "simple-icons:react",
+          style: {
+            color: "#61DAFB",
+          },
+        },
+        {
+          skillName: "Node.js",
+          fontAwesomeClassname: "simple-icons:nodedotjs",
+          style: {
+            color: "#339933",
+          },
+        },
+        {
+          skillName: "Express",
+          fontAwesomeClassname: "simple-icons:express",
+          style: {
+            color: "var(--text)",
+          },
+        },
+        {
+          skillName: "MongoDB",
+          fontAwesomeClassname: "simple-icons:mongodb",
+          style: {
+            color: "#47A248",
           },
         },
         {
@@ -66,141 +197,10 @@ const skills = {
           },
         },
         {
-          skillName: "PHP",
-          fontAwesomeClassname: "simple-icons:php",
+          skillName: "Claude / AI",
+          fontAwesomeClassname: "simple-icons:anthropic",
           style: {
-            color: "#7377AD",
-          },
-        },
-      
-        {
-          skillName: "C",
-          fontAwesomeClassname: "simple-icons:c",
-          style: {
-            color: "#E94E32",
-          },
-        },
-
-        {
-          skillName: "ReactJS",
-          fontAwesomeClassname: "simple-icons:react",
-          style: {
-            color: "#61DAFB",
-          },
-        },
-        {
-          skillName: "NextJS",
-          fontAwesomeClassname: "simple-icons:nextdotjs",
-          style: {
-            color: "#FFFFFF",
-            backgroundColor: "#1D1D1D",
-            borderRadius: "50%",
-          },
-        },
-        
-   
-        {
-          skillName: "MongoDB",
-          fontAwesomeClassname: "simple-icons:mongodb",
-          style: {
-            color: "#439743",
-          },
-        },
-
-        {
-          skillName: "MySQL",
-          fontAwesomeClassname: "simple-icons:mysql",
-          style: {
-            color: "#4479A1",
-          },
-        },
-
-        {
-          skillName: "Git",
-          fontAwesomeClassname: "simple-icons:git",
-          style: {
-            color: "#E94E32",
-          },
-        },
-      ],
-    },
-
-    {
-      title: "Cloud Infra-Architecture",
-      fileName: "CloudInfraImg",
-      skills: [
-        "⚡ Certified AWS Developer Associate and Cloud Practioner",
-        "⚡ Experience working on multiple cloud platforms",
-        "⚡ Experience hosting and managing web apps on GCP and AWS",
-        "⚡ Deploying deep learning models on cloud to use on mobile devices",
-      ],
-      softwareSkills: [
-        {
-          skillName: "GCP",
-          fontAwesomeClassname: "simple-icons:googlecloud",
-          style: {
-            color: "#4285F4",
-          },
-        },
-        {
-          skillName: "AWS",
-          fontAwesomeClassname: "simple-icons:amazonaws",
-          style: {
-            color: "#FF9900",
-          },
-        },
-
-        {
-          skillName: "MongoDB",
-          fontAwesomeClassname: "simple-icons:mongodb",
-          style: {
-            color: "#47A248",
-          },
-        },
-
-      ],
-    },
-    {
-      title: "CyberSecurity",
-      fileName: "DataScienceImg",
-      skills: [
-        "⚡Knowledge in basic penetration testing using tools like Nmap and Burp Suite.",
-        "⚡ Certifications by  Google and Zscalar",
-        "⚡ Familiar with log monitoring and threat detection using SIEM tools like Splunk.",
-      ],
-      softwareSkills: [
-     
-        {
-          skillName: "Wireshark",
-          fontAwesomeClassname: "simple-icons:wireshark",
-          style: {
-            backgroundColor: "transparent",
-            color: "#D00000",
-          },
-        },
-      
-        {
-          skillName: "Python",
-          fontAwesomeClassname: "ion-logo-python",
-          style: {
-            backgroundColor: "transparent",
-            color: "#3776AB",
-          },
-        },
-        {
-          skillName: "Kalilinux",
-          fontAwesomeClassname: "simple-icons:kalilinux",
-          style: {
-            backgroundColor: "transparent",
-            color: "#6E6E6E",
-          },
-        },
-        {
-          skillName: "Burpsuite",
-          fontAwesomeClassname: "simple-icons:burpsuite",
-          style: {
-            backgroundColor: "transparent",
-            color: "#6E6E6E",
+            color: "#D97757",
           },
         },
       ],
@@ -211,28 +211,30 @@ const skills = {
 const degrees = {
   degrees: [
     {
-      title: "Kumaraguru College of Technology",
-      subtitle: "Masters of Computer Applications",
+      title: "Kumaraguru College of Technology, Coimbatore",
+      subtitle: "Master of Computer Applications (MCA)",
+      grade: "8.29 CGPA",
       logo_path: "kum.jpg",
-      alt_name: "DAL",
+      alt_name: "KCT",
       duration: "2024 - 2026",
       descriptions: [
-        "⚡ Studied Advanced Software Development Concepts, Data Management & Warehousing",
-        "⚡ Learn Advanced Topics in Cloud Computing, Cloud Architecture along with Serverless Computing",
-        "⚡ Worked on projects on courses like Cybersecurity and Web Technologies.",
+        "⚡ Advanced coursework in Cloud Architecture, Database Management, and Enterprise Software Systems.",
+        "⚡ Hands-on specialization in Network Defense, Vulnerability Assessment, and Web Application Security.",
+        "⚡ Active Department Documentation Coordinator and Team Lead for the Cyberthon Hackathon.",
       ],
       website_link: "https://kct.ac.in/",
     },
     {
-      title: "Kongu Engineering College",
-      subtitle: "B.Sc Information Systems",
+      title: "Kongu Engineering College, Erode",
+      subtitle: "B.Sc. Information Systems",
+      grade: "8.21 CGPA",
       logo_path: "sal.jpg",
-      alt_name: "SETI",
+      alt_name: "KEC",
       duration: "2021 - 2024",
       descriptions: [
-        "⚡ I have studied core subjects like Data Structures, DBMS, Networking, Security, etc.",
-        "⚡ I have also completed various online courses for ML/DL, Web Development, Mobile App Development, etc.",
-        "⚡ I have implemented several projects based on what I've learnt under my Computer Engineering course. ",
+        "⚡ Core foundations in Computer Networks, Data Structures, Operating Systems, TCP/IP, and DBMS.",
+        "⚡ Appointed System Administrator for the Cultural & Music Club: managed AV hardware, network routing, and live-streaming setups.",
+        "⚡ Built foundational projects in network security, web platforms, and predictive risk analysis.",
       ],
       website_link: "https://kongu.ac.in/",
     },
@@ -242,32 +244,25 @@ const degrees = {
 const certifications = {
   certifications: [
     {
-      title: "Google Cybersecurity Certification",
-      subtitle: "2023 - 2024",
+      title: "Google Cybersecurity Professional Certificate",
+      subtitle: "Coursera · Google",
       logo_path: "google_logo.png",
-      certificate_link: "https://www.coursera.org/account/accomplishments/specialization/UBTSWC93SQ7H",
-      alt_name: "Google",
-      color_code: "#ffc475",
-    },
-    {
-      title: "Google AI Essentials Certification",
-      subtitle: "Coursera",
-      logo_path: "google_logo.png",
-      certificate_link: "https://www.coursera.org/account/accomplishments/certificate/Q87N3DMRLHJB",
+      certificate_link:
+        "https://www.coursera.org/account/accomplishments/specialization/UBTSWC93SQ7H",
       alt_name: "Google",
       color_code: "#ffc475",
     },
     {
       title: "AWS Cloud Practitioner Essentials",
-      subtitle: "Amazon Web Services",
+      subtitle: "Amazon Web Services (Course Completed)",
       logo_path: "aws.png",
       certificate_link:
         "https://drive.google.com/file/d/1I6zHFJTaHjgUmZmoQC9CNRQmOHsYbUJC/view",
       alt_name: "AWS",
-      color_code: "#ffc475",
+      color_code: "#ff9900",
     },
     {
-      title: "SQL injection Attack",
+      title: "SQL Injection Attack",
       subtitle: "EC-Council",
       logo_path: "Ec-council.png",
       certificate_link:
@@ -277,19 +272,12 @@ const certifications = {
     },
     {
       title: "Computer Hardware Basics",
-      subtitle: "2023",
+      subtitle: "Cisco Networking Academy",
       logo_path: "cisco.png",
-      certificate_link: "https://www.credly.com/badges/d193aeda-cce0-4409-a96c-e4d073f99f14/linked_in_profile",
+      certificate_link:
+        "https://www.credly.com/badges/d193aeda-cce0-4409-a96c-e4d073f99f14/linked_in_profile",
       alt_name: "Cisco",
       color_code: "#ffbfae",
-    },
-    {
-      title: "Become an IT Security Specialist",
-      subtitle: "Linkedin Learning",
-      logo_path: "linkedin-learning.png",
-      certificate_link: " ",
-      alt_name: "Linkedin Learning",
-      color_code: "#b190b0",
     },
     {
       title: "Cybersecurity Analyst Job Simulation",
@@ -297,187 +285,131 @@ const certifications = {
       logo_path: "forage.png",
       certificate_link:
         "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gmf3ypEXBj2wvfQWC_ifobHAoMjQs9s6bKS_Q4BzHaBLB2ggPfH2C_1738043755898_completion_certificate.pdf",
-      alt_name: "forage",
+      alt_name: "Forage",
       color_code: "#47A048",
     },
-   /*  {
-      title: "Sequence Models",
-      subtitle: "deeplearning.ai",
-      logo_path: "deeplearning_ai_logo.png",
+    {
+      title: "Google AI Essentials",
+      subtitle: "Coursera · Google",
+      logo_path: "google_logo.png",
       certificate_link:
-        "https://www.coursera.org/account/accomplishments/verify/FM5AKEZA9NUY",
-      alt_name: "deeplearning.ai",
-      color_code: "#F6B808",
+        "https://www.coursera.org/account/accomplishments/certificate/Q87N3DMRLHJB",
+      alt_name: "Google",
+      color_code: "#4285F4",
     },
     {
-      title: "Convolutional Neural Networks",
-      subtitle: "deeplearning.ai",
-      logo_path: "deeplearning_ai_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/verify/U8BLDNUT9UUM",
-      alt_name: "deeplearning.ai",
-      color_code: "#2AAFED",
-    }, */
-
+      title: "Claude 101 - Anthropic",
+      subtitle: "Anthropic (Course Completed)",
+      logo_icon: "simple-icons:claude",
+      logo_icon_color: "#D97757",
+      certificate_link: "https://www.anthropic.com/",
+      alt_name: "Anthropic",
+      color_code: "#D97757",
+    },
   ],
 };
 
 // Experience Page
 const experience = {
   title: "Experience",
-  subtitle: "Work, Internship and Volunteership",
+  subtitle: "Work, Internships & Leadership",
   description:
-    "I've completed two internships. I've mostly done projects on my own and I am actively looking for internships. I love organizing workshops to share my knowledge with others.",
+    "Production deployments, hands-on security internships, and technical leadership across collegiate and freelance initiatives.",
   header_image_path: "experience.svg",
   sections: [
     {
-      title: "Work",
+      title: "Deployments & Work",
+      icon: "fas fa-briefcase",
       experiences: [
         {
-          title: "Fresher",
-          company: "Actively searching for jobs", 
-          company_url: "https://www.linkedin.com/in/varuns2003/",
-          logo_path: "fresher.png",
-          duration: "Present",
-          location: "Erode",
+          title: "Technical Security & Server Deployment Lead",
+          company: "Triveni Automobiles (Commercial Deployment)",
+          company_url: "https://github.com/varun-8",
+          logo_path: "dal.png",
+          duration: "2026",
+          location: "Production Cloud VPS",
           description:
-            "I am an aspiring Security Analyst and System Administrator with hands-on experience in cybersecurity tools, vulnerability management, and endpoint security. Passionate about threat detection, network security, and Zero Trust Architecture, I have a strong foundation in penetration testing, cloud security, and security automation. Additionally, I possess expertise in system administration and DevOps, aiming to safeguard digital assets, enhance IT infrastructure, and drive cybersecurity resilience.",
-          color: "#f10000",
-        },
-       /* {
-          title: "Full Stack Developer - Part-time Contract",
-          company: "SpatialCut",
-          company_url: "",
-          logo_path: "spatialcut.png",
-          duration: "April 2024 - Present",
-          location: "Remote",
-          description:
-            "• Architected AWS cloud infrastructure, reducing complexity by 40% and improving scalability\n" +
-            "• Developed microservices using AWS SageMaker, ECS, and EC2 Mac Instances for Apple Vision Pro platform\n" +
-            "• Optimized video processing pipeline, reducing rendering time by 25%",
-          color: "#2962FF",
+            "• Deployed and maintained the commercial web portal on a Debian Linux cloud VPS behind an Nginx reverse proxy.\n• Conducted pre-launch security testing with Nmap, OWASP ZAP, and Burp Suite; remediated configuration weaknesses, XSS, SQL injection, and CSRF.\n• Implemented baseline hardening: SSL/TLS via Let's Encrypt/Certbot with automated renewal, HSTS, CSP, and X-Frame-Options headers, and SSH key hardening.\n• Executed load and performance tests with Apache Bench and JMeter prior to production rollout.",
+          color: "#2496ED",
         },
         {
-          title: "Full Stack Developer",
-          company: "Quicko",
-          company_url: "https://quicko.com/",
-          logo_path: "quicko.jpg",
-          duration: "June 2021 - October 2021",
-          location: "Ahmedabad",
-          description:
-            "• Developed PWA with Flutter serving 50,000+ customers\n" +
-            "• Integrated 5+ brokerages including Zerodha, Upstox, Groww\n" +
-            "• Implemented backend APIs using Node.js and Spring Boot, reducing operational costs by 20%\n" +
-            "• Created responsive frontend using Angular and Vue.js",
-          color: "#2962FF",
-        },
-        {
-          title: "Python Developer",
-          company: "Google Summer of Code - Sugar Labs",
-          company_url: "https://sugarlabs.org/",
+          title: "Freelance AI-Assisted Developer",
+          company: "Independent Client & Product Builds",
+          company_url: "https://github.com/varun-8",
           logo_path: "google_logo.png",
-          duration: "May 2019 - August 2019",
+          duration: "2025 - Present",
           location: "Remote",
           description:
-            "• Implemented Dashboard functionality using Python and GTK3 for Sugar OS\n" +
-            "• Created interactive widget for Sugar Desktop environment\n" +
-            "• Contributed to Python 2 to 3 migration and Music Blocks features",
-          color: "#ee3c26",*/
-        
+            "• Architected and built full-stack solutions including an AI-powered CRM (React/Electron desktop, React Native mobile, Node.js/Express, MongoDB) with dual-provider fallback (Google Gemini + OpenAI).\n• Conducted rigorous security code reviews on all AI-assisted code: implemented JWT sessions, RBAC, bcrypt password hashing, payload sanitization, and rate limiting.\n• Enforced data minimization: ensured only aggregated metrics are processed by external AI APIs, treating all AI outputs as untrusted data before rendering.",
+          color: "#FC1056",
+        },
       ],
     },
     {
       title: "Internships",
+      icon: "fas fa-user-graduate",
       experiences: [
         {
-          title: "Zscaler zero trust vitual internship",
-          company: "Zscalar",
-          company_url: "https://www.zscaler.com/",
-          logo_path: "Zscaler.jpeg",
-          duration: "Jan 2025 - Feb 2025 ",
-          location: "Virtual",
-          description: "Zscaler Zero Trust Architecture Virtual Internship, Gained hands-on experience in Zero Trust Security, ZIA, ZPA, and ZTNA ,Learned cloud security, access control, and policy enforcement for enterprise security.",
-          color: "#ee3c26",
-        },
-       /* {
-          title: "Android App Developer Intern",
-          company: "IAS4Sure",
-          company_url: " ",
-          logo_path: "buld.jpg",
-          duration: "December 2019 - February 2020",
-          location: "Work From Home",
+          title: "Web Development & Digital Modernization Intern",
+          company: "Coimbatore Medical College",
+          company_url: "https://cmccbe.ac.in/",
+          logo_path: "sal.jpg",
+          duration: "Apr 2025 - Jun 2025",
+          location: "Coimbatore, India",
           description:
-            "Internship task was to make a native Android application. ",
+            "• Rebuilt the institution's static portal into a modular CMS with custom structures for 20+ departments and 30+ core pages.\n• Optimized caching, asset compression, and queries, raising uptime from under 94% to 99.8% through admission-notice traffic peaks.\n• Hardened the platform: vetted plugins, removed redundant scripts, set up automated backups, and configured strict access control.\n• Built a validated Google Forms intake pipeline for departmental assets, cutting content retrieval effort by 80%+.\n• Cut content-update turnaround from 7-14 days to under 15 minutes; authored SOP manuals and trained internal IT staff for autonomous vendor-free operation.",
           color: "#0071C5",
         },
         {
-          title: "Web Developer",
-          company: "Wrighter Writing Solutions",
-          company_url: " ",
-          logo_path: "wrighter.jpg",
-          duration: "August 2020",
-          location: "",
-          description: "Develop a website using PHP and jQuery.",
-          color: "#56A4D3",
+          title: "Zscaler Zero Trust Architecture Virtual Internship",
+          company: "Zscaler",
+          company_url: "https://www.zscaler.com/",
+          logo_path: "Zscaler.jpeg",
+          duration: "Jan 2025 - Feb 2025",
+          location: "Virtual",
+          description:
+            "• Hands-on simulation of Zero Trust Security Architecture, analyzing ZIA (Internet Access), ZPA (Private Access), and ZTNA concepts.\n• Explored cloud security, least-privilege access controls, and policy enforcement across enterprise perimeters.",
+          color: "#ee3c26",
         },
-        {
-          title: "Front-End Developer",
-          company: "VJ TechServe",
-          company_url: " ",
-          logo_path: "vjt.png",
-          duration: "September 2020",
-          location: "",
-          description: "Develop a portfolio website using ReactJS",
-          color: "#800000",
-        }, */
       ],
     },
     {
-      title: "Volunteerships",
+      title: "Leadership & Campus Roles",
+      icon: "fas fa-users",
       experiences: [
         {
-          title: "Documentation Co-ordinator of MCA Department",
+          title: "Team Lead — Cyberthon Hackathon",
           company: "Kumaraguru College of Technology",
           company_url: "https://kct.ac.in/",
           logo_path: "dal.png",
-          duration: "2024 - 2026",
-          location: " ",
+          duration: "Mar 2025",
+          location: "Coimbatore",
           description:
-            "Documentation Coordinator – MCA Department (2024 – Present)Responsible for maintaining official records, reports, and event documentation.Ensure accurate documentation of meetings, decisions, and departmental activities. Collaborate with teams to organize and manage essential documents efficiently.",
+            "• Led team 'Cyber Warriors' in the Cyberthon hackathon and built a privacy-focused data sharing app.\n• The app securely transfers messages from one mobile phone to another over Wi-Fi connections, with no need for an internet connection.",
+          color: "#ffc475",
+        },
+        {
+          title: "Documentation Coordinator — MCA Department",
+          company: "Kumaraguru College of Technology",
+          company_url: "https://kct.ac.in/",
+          logo_path: "kum.jpg",
+          duration: "2024 - 2026",
+          location: "Coimbatore",
+          description:
+            "• Secured the Best Volunteer Award in the department association.\n• Worked on the college's NAAC accreditation through documentation work.\n• Maintained official departmental records, accreditation documentation, and event reports.\n• Collaborated with faculty and student teams to keep audit logs, compliance records, and event archives accurate.",
           color: "#4285F4",
         },
         {
-          title: "System Administrator of Cultural and music club",
+          title: "System Administrator — Cultural & Music Club",
           company: "Kongu Engineering College",
           company_url: "https://kongu.ac.in/",
           logo_path: "sal.jpg",
           duration: "2022 - 2024",
-          location: " ",
+          location: "Erode",
           description:
-            "Managed audio-visual systems and ensured smooth technical operations during events.Handled equipment setup, troubleshooting, and coordination for live performances.Collaborated with teams to optimize sound, lighting, and multimedia presentations.",
+            "• Managed AV systems, network setups, hardware troubleshooting, and live-stream reliability for campus events.\n• Coordinated equipment configuration and signal stability for uninterrupted live event operations.",
           color: "#D83B01",
         },
-        /*{
-          title: "Board Member at Codeuino",
-          company: " ",
-          company_url: " ",
-          logo_path: "codeuino.jpg",
-          duration: "2018 - 2019",
-          location: " ",
-          description: "Previous Board during early days of Codeuino",
-          color: "#D83B01",
-        },
-        {
-          title: "BluWings Club",
-          company: " ",
-          company_url: " ",
-          logo_path: "b.png",
-          duration: "2018 - On Going",
-          location: " ",
-          description:
-            "Co-Founder and President of the programming club called BluWings. Have organized several workshops which introduced programming and related tools to freshers.",
-          color: "#D83B01",
-        },*/
       ],
     },
   ],
@@ -487,8 +419,194 @@ const experience = {
 const projectsHeader = {
   title: "Projects",
   description:
-    "My projects makes use of vast variety of latest technology tools. My best experience is to create Cyber Security, Machine learning and Full Stack projects.",
+    "Production deployments, security monitoring labs, and AI-assisted applications.",
   avatar_image_path: "projects_image.svg",
+};
+
+const projects = {
+  data: [
+    {
+      name: "SIEM Deployment & Security Log Analysis",
+      category: "Security Monitoring",
+      url: "https://github.com/varun-8",
+      description:
+        "Deployed Splunk Enterprise on a Linux cloud instance to ingest and index OS and authentication logs. Configured searches, alerts, and dashboards to detect SSH brute-force attacks, unauthorized privilege escalations, and anomalous authentications with triage workflows.",
+      languages: [
+        {
+          name: "Splunk",
+          iconifyClass: "mdi:chevron-right-box",
+          color: "#ED2939",
+        },
+        {
+          name: "Linux",
+          iconifyClass: "logos:linux-tux",
+        },
+        {
+          name: "Bash",
+          iconifyClass: "logos:bash-icon",
+        },
+        {
+          name: "Syslog",
+          iconifyClass: "vscode-icons:file-type-log",
+        },
+      ],
+    },
+    {
+      name: "Secure Production Deployment: Triveni Automobiles",
+      category: "Production Deployment",
+      url: "https://github.com/varun-8",
+      description:
+        "Live commercial web portal deployed on a hardened Debian cloud VPS behind an Nginx reverse proxy. Conducted pre-launch vulnerability scanning with OWASP ZAP and Burp Suite to remediate XSS and SQLi; implemented SSL/TLS auto-renewal, HSTS/CSP security headers, and SSH key hardening.",
+      languages: [
+        {
+          name: "Nginx",
+          iconifyClass: "logos:nginx",
+        },
+        {
+          name: "Debian",
+          iconifyClass: "logos:debian",
+        },
+        {
+          name: "OWASP ZAP",
+          iconifyClass: "simple-icons:owasp",
+          color: "#1F2328",
+        },
+        {
+          name: "Let's Encrypt",
+          iconifyClass: "logos:letsencrypt",
+        },
+      ],
+    },
+    {
+      name: "AI-Powered CRM (Desktop & Mobile)",
+      category: "Full-Stack · AI",
+      url: "https://github.com/varun-8",
+      description:
+        "Cross-platform CRM featuring a dynamic JSON-schema form builder rendering across desktop and mobile, and an AI analytics service with automatic provider fallback (Gemini/OpenAI). Hardened with JWT auth, role-based access control (RBAC), input sanitization, and rate limiting.",
+      languages: [
+        {
+          name: "React",
+          iconifyClass: "logos:react",
+        },
+        {
+          name: "Node.js",
+          iconifyClass: "logos:nodejs-icon",
+        },
+        {
+          name: "Express",
+          iconifyClass: "simple-icons:express",
+          color: "#1F2328",
+        },
+        {
+          name: "MongoDB",
+          iconifyClass: "logos:mongodb-icon",
+        },
+      ],
+    },
+    {
+      name: "Institutional Web Platform Revamp: CMC",
+      category: "Web Platform",
+      url: "https://cmccbe.ac.in/",
+      description:
+        "Re-engineered institutional web portal serving 20+ departments and 30+ pages. Achieved 99.8% uptime during high-volume admission traffic peaks by implementing server-level caching and query optimization. Hardened with vetted plugins, automated backups, and strict RBAC.",
+      languages: [
+        {
+          name: "WordPress",
+          iconifyClass: "logos:wordpress-icon",
+        },
+        {
+          name: "PHP",
+          iconifyClass: "logos:php",
+        },
+        {
+          name: "MySQL",
+          iconifyClass: "logos:mysql-icon",
+        },
+        {
+          name: "Nginx",
+          iconifyClass: "logos:nginx",
+        },
+      ],
+    },
+    {
+      name: "Network Vulnerability Assessment & Traffic Analysis",
+      category: "Network Security",
+      url: "https://github.com/varun-8",
+      description:
+        "Performed detailed network reconnaissance and vulnerability assessments using Nmap to identify open ports, obsolete service versions, and misconfigurations. Captured and analyzed TCP handshakes and unencrypted protocol traffic using Wireshark; validated network defenses by tuning restrictive UFW and iptables rules.",
+      languages: [
+        {
+          name: "Wireshark",
+          iconifyClass: "simple-icons:wireshark",
+          color: "#1679A7",
+        },
+        {
+          name: "Kali Linux",
+          iconifyClass: "simple-icons:kalilinux",
+          color: "#557C94",
+        },
+        {
+          name: "Linux",
+          iconifyClass: "logos:linux-tux",
+        },
+        {
+          name: "Bash",
+          iconifyClass: "logos:bash-icon",
+        },
+      ],
+    },
+    {
+      name: "Muscle-Fatigue Forecasting & Ergonomic Risk Analysis",
+      category: "Data Analysis",
+      url:
+        "https://colab.research.google.com/drive/1Haqvf2EWBvjq3rWQarEdrGsV0VN1h-6C?usp=sharing",
+      description:
+        "Analyzed surface electromyography (sEMG) sensor data to assess muscle fatigue patterns. Implemented Butterworth band-pass (20-450 Hz) and 50 Hz notch filters, extracted RMS features across 250 ms windows, verified stationarity via ADF testing, and fitted ARIMA models selected by AIC to forecast fatigue thresholds.",
+      languages: [
+        {
+          name: "Python",
+          iconifyClass: "logos:python",
+        },
+        {
+          name: "NumPy",
+          iconifyClass: "logos:numpy",
+        },
+        {
+          name: "Pandas",
+          iconifyClass: "logos:pandas-icon",
+        },
+      ],
+    },
+  ],
+};
+
+// Hobbies (Home page, after "Here's what I do")
+const hobbies = {
+  title: "Beyond Work",
+  subtitle: "Things I enjoy when I'm not on the clock",
+  data: [
+    {
+      title: "Testing Open-Source Apps",
+      description:
+        "I like trying out open-source applications, putting their features through their paces and finding bugs and rough edges.",
+      icon: "fas fa-vial",
+      visual: "test",
+    },
+    {
+      title: "Vibe Coding with AI",
+      description:
+        "I use AI-assisted vibe coding to build apps that solve real business problems, taking ideas to working prototypes fast.",
+      icon: "fas fa-robot",
+      visual: "code",
+    },
+    {
+      title: "Listening to Music",
+      description:
+        "Music is how I relax and recharge, and it's always playing in the background.",
+      icon: "fas fa-headphones",
+      visual: "music",
+    },
+  ],
 };
 
 // Contact Page
@@ -497,230 +615,9 @@ const contactPageData = {
     title: "Contact Me",
     profile_image_path: "varun.JPG",
     description:
-      "You can contact me at the places mentioned below. I will try to get back to you as fast as I can. ",
+      "Have a role, project or question? Feel free to connect or drop a message below.",
+    reply_time: "Replies within 48 hours",
   },
-  blogSection: {
-    title: "Blogs",
-    subtitle:
-      "I don't blog frequently but when I do something awesome, I do try my best to write a blog about it.",
-    link: "https://medium.com/",
-    avatar_image_path: "blogs_image.svg",
-  },
-};
-
-const projects = {
-  data: [
-    {
-      name: "Privacy Datasharing App",
-      url: "https://github.com/varun-8/Privacy-data-sharing-app",
-      description:
-        "Developed a Privacy Data Sharing App enabling secure transfer of encrypted messages and data. Implemented robust encryption and group-based sharing for enhanced security. Designed with a focus on privacy preservation and user-controlled access.",
-      languages: [
-        {
-          name: "Python",
-          iconifyClass: "devicon-python",
-        },
-        {
-          name: "React",
-          iconifyClass: "devicon-react",
-        },
-        {
-          name: "Mongo",
-          iconifyClass: "devicon-mongodb",
-        },
-        {
-          name: "Node.js",
-          iconifyClass: "devicon-nodejs",
-        },
-      ],
-    },
-    {
-      name: "Risk Assessment of Construction workers using Machine learning",
-      url: "https://colab.research.google.com/drive/1Haqvf2EWBvjq3rWQarEdrGsV0VN1h-6C?usp=sharing",
-      description: "Developed a machine learning model using the ARIMA algorithm to assess and predict risk levels among construction workers based on historical incident data. Enabled proactive safety management by forecasting potential hazards and trends.",
-      languages: [
-        {
-          name: "React.js",
-          iconifyClass: "logos-react",
-        },
-        {
-          name: "TypeScript",
-          iconifyClass: "devicon-typescript",
-        },
-        {
-          name: "Node.js",
-          iconifyClass: "devicon-nodejs",
-        },
-        {
-          name: "Express.js",
-          iconifyClass: "devicon-express",
-        },
-        {
-          name: "MongoDB",
-          iconifyClass: "logos-mongodb",
-        },
-      ],
-    },
-   /* {
-      name: "Journalify",
-      url: "https://play.google.com/store/apps/details?id=com.picle.journalify",
-      description:
-        "You personal journaling companion, goals & daily challenges! About 5k+ downloads on Play Store.",
-      languages: [
-        {
-          name: "Flutter",
-          iconifyClass: "logos-flutter",
-        },
-        {
-          name: "Firebase",
-          iconifyClass: "logos-firebase",
-        },
-      ],
-    },
-    {
-      name: "RecipesAPI",
-      url: "https://rapidapi.com/Hrishi1999/api/recipesapi2",
-      description: "Get recipes for hundreds and thousands of dishes",
-      languages: [
-        {
-          name: "NodeJS",
-          iconifyClass: "logos-nodejs",
-        },
-        {
-          name: "JavaScript",
-          iconifyClass: "logos-javascript",
-        },
-      ],
-    },
-    {
-      name: "opPortfolio",
-      url: "https://github.com/Hrishi1999/opPortfolio",
-      description: "(This) A clean and full customizable portfolio template.",
-      languages: [
-        {
-          name: "ReactJS",
-          iconifyClass: "logos-react",
-        },
-      ],
-    },
-    {
-      name: "Cab Security System",
-      url: " ",
-      description:
-        "Driver drowsiness detection, profanity detection, violence detection, SMS alerts, cab driver tracking.",
-      languages: [
-        {
-          name: "Python",
-          iconifyClass: "logos-python",
-        },
-        {
-          name: "Tensorflow",
-          iconifyClass: "logos-tensorflow",
-        },
-        {
-          name: "OpenCV",
-          iconifyClass: "logos-opencv",
-        },
-      ],
-    },
-    {
-      name: "Lensinator",
-      url: " ",
-      description:
-        "Published on Play Store back in 2017, crossed 55K downloads. Performed object detection, image captioning, OCR, handwritten OCR, barcode and QR code scanning with product information.",
-      languages: [
-        {
-          name: "JavaScript",
-          iconifyClass: "logos-java",
-        },
-        {
-          name: "Python",
-          iconifyClass: "logos-python",
-        },
-        {
-          name: "Firebase",
-          iconifyClass: "logos-firebase",
-        },
-      ],
-    },
-    {
-      name: "Doorbell.io",
-      url: "https://github.com/Hrishi1999/Doorbell.io",
-      description:
-        "A sound-classifier webapp made with ReactJS + TensorflowJS.",
-      languages: [
-        {
-          name: "Python",
-          iconifyClass: "logos-python",
-        },
-        {
-          name: "ReactJS",
-          iconifyClass: "logos-react",
-        },
-        {
-          name: "TensorflowJS",
-          iconifyClass: "logos-tensorflow",
-        },
-      ],
-    },
-    {
-      name: "Video Summarization",
-      url: "https://github.com/Hrishi1999/Video-Summarization",
-      description:
-        "A video summarization webapp. A Flask-based backend which servers the Tensorflow model and a frontend made in ReactJS.",
-      languages: [
-        {
-          name: "JavaScript",
-          iconifyClass: "logos-javascript",
-        },
-        {
-          name: "Python",
-          iconifyClass: "logos-python",
-        },
-        {
-          name: "ReactJS",
-          iconifyClass: "logos-react",
-        },
-        {
-          name: "Tensorflow",
-          iconifyClass: "logos-tensorflow",
-        },
-      ],
-    },
-    {
-      name: "Dashboard Activity",
-      url: "https://github.com/Hrishi1999/Dashboard.activity",
-      description:
-        "Google Summer of Code project. A Dashboard activity for Sugar OS which tracks user activity so user can know where they use their most time and where they create most files.",
-      languages: [
-        {
-          name: "Python",
-          iconifyClass: "logos-python",
-        },
-      ],
-    },
-    {
-      name: "Project Pickle",
-      url: " ",
-      description:
-        "An app similar to Uber Eats but targeted for Gruhudhyogs (homemade pickles and products). Order management, live order tracking, rating and reviews system, etc.",
-      languages: [
-        {
-          name: "Java",
-          iconifyClass: "logos-java",
-        },
-        {
-          name: "Firebase",
-          iconifyClass: "logos-firebase",
-        },
-        {
-          name: "Python",
-          iconifyClass: "logos-python",
-        },
-      ],
-    },*/
-   
-  ],
 };
 
 export {
@@ -734,4 +631,5 @@ export {
   projectsHeader,
   contactPageData,
   projects,
+  hobbies,
 };

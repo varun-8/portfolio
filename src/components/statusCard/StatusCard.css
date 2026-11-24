@@ -1,0 +1,174 @@
+/* ---------- shared ---------- */
+.status-card {
+  display: inline-flex;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 28px -20px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.status-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -20px var(--shadow);
+}
+
+.status-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--success);
+}
+
+.status-dot {
+  position: relative;
+  flex: 0 0 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+.status-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--success);
+  animation: status-pulse 1.8s ease-out infinite;
+}
+
+@keyframes status-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+.status-roles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 4px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.status-roles li + li::before {
+  content: "·";
+  margin: 0 10px;
+  color: var(--muted);
+}
+
+.status-extra {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+/* ---------- stack (home hero) ---------- */
+.status-stack {
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 20px 14px 18px;
+  border-radius: 12px;
+  border-left: 3px solid var(--success);
+}
+
+/* ---------- strip (contact page) ---------- */
+.status-strip {
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 12px 6px;
+  border-radius: 999px;
+}
+
+.status-strip > * {
+  padding: 2px 18px;
+}
+
+.status-strip > * + * {
+  border-left: 1px solid var(--border);
+}
+
+.status-strip .status-roles {
+  font-size: 15px;
+}
+
+/* ---------- small screens ---------- */
+@media (max-width: 900px) {
+  .status-stack {
+    align-items: center;
+    border-left: 1px solid var(--border);
+    border-top: 3px solid var(--success);
+  }
+
+  .status-stack .status-roles {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .status-strip {
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 18px;
+    border-radius: 14px;
+    border-top: 3px solid var(--success);
+  }
+
+  .status-strip > * {
+    padding: 0;
+  }
+
+  .status-strip > * + * {
+    border-left: none;
+  }
+
+  .status-strip .status-roles {
+    justify-content: center;
+  }
+}
+
+/* phones: roles become small pills so a wrapped line never starts with "·" */
+@media (max-width: 480px) {
+  .status-roles {
+    gap: 6px;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  .status-roles li {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+
+  .status-roles li + li::before {
+    content: none;
+  }
+
+  .status-extra {
+    white-space: normal;
+  }
+}

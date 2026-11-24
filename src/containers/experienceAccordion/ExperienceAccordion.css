@@ -1,26 +1,189 @@
 .experience-accord {
-  margin: 50px;
-  border-radius: 5px;
-  background-color: #1d1d1d;
-  border: 0.1px solid rgba(211, 211, 211, 0.397);
-  transition: all 0.2s ease-in-out;
+  max-width: 1000px;
+  margin: 30px auto 20px;
+  padding: 0 24px;
 }
 
-.experience-accord:hover {
-  color: rgba(255, 255, 255, 1);
-  box-shadow: 0 5px 15px #e2405f;
+/* ---------- filter tabs ---------- */
+.exp-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 44px;
 }
 
-.accord-panel {
-  font-family: "Google Sans Regular";
+.exp-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 14px 9px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+  transition: color 0.25s ease, background-color 0.25s ease,
+    border-color 0.25s ease, transform 0.25s ease;
 }
 
-.accord {
-  background-color: black;
+.exp-tab i {
+  font-size: 13px;
+  color: var(--muted);
+  transition: color 0.25s ease;
+}
+
+.exp-tab:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.exp-tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.exp-tab-count {
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--surface);
+}
+
+.exp-tab.active {
+  color: #ffffff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.exp-tab.active i {
+  color: #ffffff;
+}
+
+.exp-tab.active .exp-tab-count {
+  color: var(--accent);
+  background: #ffffff;
+}
+
+/* fade the list in whenever the filter changes */
+.exp-sections {
+  animation: exp-fade 0.45s ease both;
+}
+
+@keyframes exp-fade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- sections ---------- */
+.experience-section {
+  margin-bottom: 48px;
+}
+
+.experience-section-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.experience-section-icon {
+  flex: 0 0 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  color: var(--accent);
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.experience-section-title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.experience-section-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* vertical rail the cards hang off */
+.experience-timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(var(--accent), var(--border) 60%);
+  transform: translateX(-50%);
 }
 
 @media (max-width: 768px) {
   .experience-accord {
-    margin: 20px;
+    padding: 0 16px;
+  }
+
+  .exp-tabs {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    margin: 0 -16px 32px;
+    padding: 4px 16px 8px;
+    scrollbar-width: none;
+  }
+
+  .exp-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .exp-tab {
+    flex-shrink: 0;
+  }
+
+  .experience-section-title {
+    font-size: 21px;
+  }
+
+  .experience-section-icon {
+    flex-basis: 36px;
+    height: 36px;
+    font-size: 15px;
+  }
+
+  .experience-timeline {
+    padding-left: 26px;
+  }
+
+  .experience-timeline::before {
+    left: 9px;
   }
 }

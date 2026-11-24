@@ -6,20 +6,12 @@ import { Fade } from "react-reveal";
 import { projectsHeader, projects, socialMediaLinks } from "../../portfolio.js";
 import "./Projects.css";
 import ProjectsImg from "./ProjectsImg";
-import { style } from "glamor";
 
 function Projects(props) {
   const theme = props.theme;
 
-  const styles = style({
-    backgroundColor: `${theme.accentBright}`,
-    ":hover": {
-      boxShadow: `0 5px 15px ${theme.accentBright}`,
-    },
-  });
-
   return (
-    <div className="projects-main">
+    <div className="projects-main page-transition">
       <Header theme={theme} setTheme={props.setTheme} />
       <div className="basic-projects">
         <Fade bottom duration={2000} distance="40px">
@@ -45,16 +37,15 @@ function Projects(props) {
         </Fade>
       </div>
       <div className="repo-cards-div-main">
-        {projects.data.map((repo) => {
-          return <ProjectCard repo={repo} theme={theme} />;
-        })}
+        {projects.data.map((repo, i) => (
+          <ProjectCard key={repo.name} repo={repo} theme={theme} index={i} />
+        ))}
       </div>
       <br />
       <br />
       <br />
       <a
-        {...styles}
-        className="general-btn"
+        className="general-btn btn-accent"
         href={socialMediaLinks.github}
         target="_blank"
         rel="noopener noreferrer"
