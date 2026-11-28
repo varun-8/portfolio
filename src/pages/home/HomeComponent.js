@@ -9,7 +9,7 @@ function Home(props) {
   return (
     <div className="page-transition">
       <Header theme={props.theme} setTheme={props.setTheme} />
-      <Greeting theme={props.theme} />
+      <Greeting theme={props.theme} onOpenResume={props.onOpenResume} />
       <Skills theme={props.theme} />
       <Hobbies theme={props.theme} />
       <Footer theme={props.theme} />

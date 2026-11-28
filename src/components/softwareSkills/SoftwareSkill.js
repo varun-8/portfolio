@@ -7,18 +7,25 @@ function SoftwareSkill(props) {
     <div>
       <div className="software-skills-main-div">
         <ul className="dev-icons">
-          {props.logos.map((logo) => {
+          {props.logos.map((logo, idx) => {
+            const tooltipId = `skill-tooltip-${logo.skillName
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, "-")}-${idx}`;
             return (
               <OverlayTrigger
                 key={logo.skillName}
-                placement={"top"}
+                placement="top"
                 overlay={
-                  <Tooltip id={`tooltip-top`}>
+                  <Tooltip id={tooltipId} className="skill-tooltip">
                     <strong>{logo.skillName}</strong>
                   </Tooltip>
                 }
               >
-                <li className="software-skill-inline" name={logo.skillName}>
+                <li
+                  className="software-skill-inline"
+                  tabIndex={0}
+                  aria-label={logo.skillName}
+                >
                   <span
                     className="iconify"
                     data-icon={logo.fontAwesomeClassname}

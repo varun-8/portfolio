@@ -222,15 +222,26 @@ function Contact(props) {
                 ))}
               </ul>
 
-              <a
-                className="button btn-primary contact-resume-btn"
-                href={greeting.resumeLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fas fa-file-alt" aria-hidden="true"></i>
-                See my Resume
-              </a>
+              {props.onOpenResume ? (
+                <button
+                  type="button"
+                  className="button btn-primary contact-resume-btn"
+                  onClick={props.onOpenResume}
+                >
+                  <i className="fas fa-file-alt" aria-hidden="true"></i>
+                  Preview Resume
+                </button>
+              ) : (
+                <a
+                  className="button btn-primary contact-resume-btn"
+                  href={greeting.resumeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fas fa-file-alt" aria-hidden="true"></i>
+                  See my Resume
+                </a>
+              )}
 
               <div className="contact-social">
                 <SocialMedia />

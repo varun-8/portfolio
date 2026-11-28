@@ -7,20 +7,24 @@ function ProjectLanguages(props) {
     <div>
       <div className="software-skills-main-div">
         <ul className="dev-icons-languages">
-          {props.logos.map((logo) => {
+          {props.logos.map((logo, idx) => {
+            const tooltipId = `proj-tooltip-${logo.name
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, "-")}-${idx}`;
             return (
               <OverlayTrigger
                 key={logo.name}
-                placement={"top"}
+                placement="top"
                 overlay={
-                  <Tooltip id={`tooltip-top`}>
+                  <Tooltip id={tooltipId} className="skill-tooltip">
                     <strong>{logo.name}</strong>
                   </Tooltip>
                 }
               >
                 <li
                   className="software-skill-inline-languages"
-                  name={logo.skillName}
+                  tabIndex={0}
+                  aria-label={logo.name}
                 >
                   <span
                     className="iconify"

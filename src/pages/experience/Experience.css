@@ -3,19 +3,25 @@
 }
 
 .basic-experience {
-  margin-left: 5%;
-  margin-right: 5%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
 }
 
 .experience-heading-div {
   display: flex;
+  align-items: center;
+  gap: 32px;
 }
 
 .experience-heading-div > * {
   flex: 1;
+  min-width: 0;
 }
 
 .experience-heading-img-div {
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -24,65 +30,68 @@
   text-align: center;
 }
 
-.experience-heading-img-div > * {
-  max-width: 100%;
+.experience-heading-img-div > *,
+.experience-heading-img-div svg {
+  width: 100%;
+  max-width: 480px;
   height: auto;
+  display: block;
 }
 
 .experience-heading-text {
-  font-size: 56px;
+  font-size: 54px;
   font-family: var(--font-sans);
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.1;
   text-align: center;
-  margin-top: 80px;
+  margin: 0 0 12px;
 }
 
 .experience-heading-sub-text {
-  font-size: 30px;
+  font-size: 24px;
+  font-weight: 500;
   font-family: var(--font-sans);
   text-align: center;
-  margin-bottom: 10px;
+  margin: 0 0 14px;
 }
 
 .experience-header-detail-text {
-  font-size: 20px;
-  line-height: 30px;
-  margin-top: 0px;
-  margin-left: 20px;
-  margin-right: 20px;
+  font-size: 18px;
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 540px;
   font-family: var(--font-sans);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 @media (max-width: 1380px) {
   .experience-heading-text {
-    font-size: 50px;
-    margin-top: 80px;
+    font-size: 48px;
   }
   .experience-heading-sub-text {
-    font-size: 25px;
+    font-size: 22px;
   }
 }
 
 @media (max-width: 768px) {
+  .basic-experience {
+    padding: 16px 16px 0;
+  }
+
   .experience-heading-text {
-    font-size: 30px;
-    margin-top: 20px;
+    font-size: 34px;
   }
 
   .experience-heading-sub-text {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .experience-heading-div {
     flex-direction: column;
+    gap: 18px;
   }
 
   .experience-header-detail-text {
     font-size: 16px;
-    margin-right: 0px;
-    line-height: normal;
-    text-align: center;
   }
 }

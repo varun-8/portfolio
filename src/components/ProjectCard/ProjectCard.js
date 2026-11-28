@@ -2,25 +2,33 @@ import React from "react";
 import "./ProjectCard.css";
 import { Fade } from "react-reveal";
 
-export default function ProjectCard({ repo: project, theme, index = 0 }) {
+export default function ProjectCard({
+  repo: project,
+  theme,
+  index = 0,
+  onSelect,
+}) {
   const hasLink = project.url && project.url.trim();
   const isGithub = hasLink && project.url.includes("github.com");
 
   return (
     <Fade bottom duration={900} distance="30px" delay={(index % 3) * 100}>
-      <a
-        className="project-card"
-        href={hasLink ? project.url : undefined}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <article className="project-card">
         <div className="project-card-top">
           <span className="project-category">
             <i className="far fa-folder-open" aria-hidden="true"></i>
             {project.category || "Project"}
           </span>
           {hasLink && (
-            <span className="project-card-ext">
+            <a
+              className="project-card-ext"
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${project.name} (${
+                isGithub ? "GitHub" : "external link"
+              })`}
+            >
               <i
                 className={
                   isGithub ? "fab fa-github" : "fas fa-external-link-alt"
@@ -28,7 +36,7 @@ export default function ProjectCard({ repo: project, theme, index = 0 }) {
                 aria-hidden="true"
               ></i>
               {isGithub ? "Code" : "Visit"}
-            </span>
+            </a>
           )}
         </div>
 
@@ -54,7 +62,19 @@ export default function ProjectCard({ repo: project, theme, index = 0 }) {
             ))}
           </ul>
         )}
-      </a>
+
+        {onSelect && (
+          <div className="project-card-foot">
+            <button
+              type="button"
+              className="project-details-btn"
+              onClick={() => onSelect(project)}
+            >
+              Case study details <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        )}
+      </article>
     </Fade>
   );
 }

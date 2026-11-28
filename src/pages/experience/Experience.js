@@ -19,6 +19,7 @@ function Experience(props) {
               <ExperienceImg theme={theme} />
             </div>
             <div className="experience-heading-text-div">
+              <span className="page-eyebrow">Career & Leadership</span>
               <h1
                 className="experience-heading-text"
                 style={{ color: theme.text }}

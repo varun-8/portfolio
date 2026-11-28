@@ -19,13 +19,25 @@
 }
 
 .certs-body-div {
-  max-width: 1000px;
+  max-width: 1020px;
   margin-left: auto;
   margin-right: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
   margin-bottom: 40px;
+}
+
+.certs-body-div > * {
+  flex: 0 1 312px;
+  max-width: 340px;
+  width: 100%;
+  display: flex;
+}
+
+.certs-body-div > * > .cert-card {
+  width: 100%;
 }
 
 @media (max-width: 1380px) {
@@ -35,8 +47,9 @@
 }
 
 @media (max-width: 768px) {
-  .certs-body-div {
-    grid-template-columns: 1fr;
+  .certs-body-div > * {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
   .certs-header {
     font-size: 30px;

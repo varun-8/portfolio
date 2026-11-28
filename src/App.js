@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 import { themes } from "./theme";
 import { GlobalStyles } from "./global";
 import BackToTop from "./components/backToTop/BackToTop";
-import { CursorProvider } from "react-cursor-custom";
+import ResumeModal from "./components/resumeModal/ResumeModal";
 import { settings } from "./portfolio";
 import ReactGA from "react-ga";
 
@@ -27,31 +27,19 @@ function App() {
       return "dark";
     }
   });
-  // The custom cursor only makes sense with a mouse; skip it on touch screens
-  const isTouch =
-    typeof window !== "undefined" &&
-    window.matchMedia &&
-    window.matchMedia("(hover: none), (pointer: coarse)").matches;
-  const useCursor = settings.useCustomCursor && !isTouch;
+  const [resumeOpen, setResumeOpen] = useState(false);
 
   return (
     <ThemeProvider theme={themes[theme]}>
       <>
         <GlobalStyles />
-        <div>
-          {useCursor ? (
-            <CursorProvider
-              color={themes[theme].secondaryText}
-              ringSize={25}
-              transitionTime={75}
-            >
-              <Main theme={themes[theme]} setTheme={setTheme} />
-            </CursorProvider>
-          ) : (
-            <Main theme={themes[theme]} setTheme={setTheme} />
-          )}
-          <BackToTop />
-        </div>
+        <Main
+          theme={themes[theme]}
+          setTheme={setTheme}
+          onOpenResume={() => setResumeOpen(true)}
+        />
+        <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
+        <BackToTop />
       </>
     </ThemeProvider>
   );

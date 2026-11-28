@@ -98,9 +98,13 @@
   gap: 14px;
 }
 
+.greeting-actions .button {
+  gap: 9px;
+}
+
 .btn-arrow {
   display: inline-block;
-  margin-left: 8px;
+  margin-left: 2px;
   transition: transform 0.25s ease;
 }
 
@@ -122,20 +126,26 @@
 .greeting-image-div {
   display: flex;
   justify-content: center;
-}
-
-.greeting-image-float {
   width: 100%;
-  max-width: 520px;
-  margin: 0 auto;
-  animation: hero-float 6s ease-in-out infinite;
 }
 
-.greeting-image-float > svg {
+.greeting-image-div > .react-reveal,
+.greeting-image-div > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-visual-wrap {
+  width: 100%;
+  max-width: 500px;
+  animation: hero-float 7s ease-in-out infinite;
+}
+
+.hero-security-svg {
+  display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 711 / 650; /* matches the SVG's width/height attributes */
-  display: block;
 }
 
 @keyframes hero-float {
@@ -144,7 +154,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-10px);
   }
 }
 

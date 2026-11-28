@@ -428,9 +428,15 @@ const projects = {
     {
       name: "SIEM Deployment & Security Log Analysis",
       category: "Security Monitoring",
+      filterGroup: "Security",
       url: "https://github.com/varun-8",
       description:
         "Deployed Splunk Enterprise on a Linux cloud instance to ingest and index OS and authentication logs. Configured searches, alerts, and dashboards to detect SSH brute-force attacks, unauthorized privilege escalations, and anomalous authentications with triage workflows.",
+      highlights: [
+        "Ingested and indexed Linux OS and authentication logs into Splunk Enterprise on a cloud instance",
+        "Built SPL searches, alerts, and monitoring dashboards for SSH brute-force and privilege-escalation events",
+        "Defined repeatable alert-triage workflows for anomalous authentication attempts",
+      ],
       languages: [
         {
           name: "Splunk",
@@ -454,9 +460,15 @@ const projects = {
     {
       name: "Secure Production Deployment: Triveni Automobiles",
       category: "Production Deployment",
+      filterGroup: "Security",
       url: "https://github.com/varun-8",
       description:
         "Live commercial web portal deployed on a hardened Debian cloud VPS behind an Nginx reverse proxy. Conducted pre-launch vulnerability scanning with OWASP ZAP and Burp Suite to remediate XSS and SQLi; implemented SSL/TLS auto-renewal, HSTS/CSP security headers, and SSH key hardening.",
+      highlights: [
+        "Hardened Debian cloud VPS with SSH key authentication and an Nginx reverse proxy",
+        "Scanned pre-launch builds using Nmap, OWASP ZAP, and Burp Suite to remediate XSS, SQLi, and CSRF",
+        "Configured automated Let's Encrypt SSL/TLS renewal with HSTS, CSP, and X-Frame-Options headers",
+      ],
       languages: [
         {
           name: "Nginx",
@@ -480,9 +492,15 @@ const projects = {
     {
       name: "AI-Powered CRM (Desktop & Mobile)",
       category: "Full-Stack · AI",
+      filterGroup: "Full-Stack & Data",
       url: "https://github.com/varun-8",
       description:
         "Cross-platform CRM featuring a dynamic JSON-schema form builder rendering across desktop and mobile, and an AI analytics service with automatic provider fallback (Gemini/OpenAI). Hardened with JWT auth, role-based access control (RBAC), input sanitization, and rate limiting.",
+      highlights: [
+        "Built a dynamic JSON-schema form builder across React/Electron desktop and React Native mobile",
+        "Implemented an AI analytics service with automatic dual-provider failover (Gemini and OpenAI)",
+        "Enforced JWT authentication, RBAC, bcrypt hashing, payload sanitization, and API rate limiting",
+      ],
       languages: [
         {
           name: "React",
@@ -506,9 +524,15 @@ const projects = {
     {
       name: "Institutional Web Platform Revamp: CMC",
       category: "Web Platform",
+      filterGroup: "Cloud & Web",
       url: "https://cmccbe.ac.in/",
       description:
         "Re-engineered institutional web portal serving 20+ departments and 30+ pages. Achieved 99.8% uptime during high-volume admission traffic peaks by implementing server-level caching and query optimization. Hardened with vetted plugins, automated backups, and strict RBAC.",
+      highlights: [
+        "Rebuilt static portal into a modular CMS covering 20+ departments and 30+ core pages",
+        "Raised uptime from under 94% to 99.8% during admission peaks via caching and query optimization",
+        "Reduced content-update turnaround from 7-14 days to under 15 minutes with staff SOP training",
+      ],
       languages: [
         {
           name: "WordPress",
@@ -531,9 +555,15 @@ const projects = {
     {
       name: "Network Vulnerability Assessment & Traffic Analysis",
       category: "Network Security",
+      filterGroup: "Security",
       url: "https://github.com/varun-8",
       description:
         "Performed detailed network reconnaissance and vulnerability assessments using Nmap to identify open ports, obsolete service versions, and misconfigurations. Captured and analyzed TCP handshakes and unencrypted protocol traffic using Wireshark; validated network defenses by tuning restrictive UFW and iptables rules.",
+      highlights: [
+        "Conducted port, service-version, and misconfiguration reconnaissance using Nmap",
+        "Captured and inspected TCP handshakes and unencrypted traffic flows in Wireshark",
+        "Tightened host firewall posture and verified controls using restrictive UFW and iptables rules",
+      ],
       languages: [
         {
           name: "Wireshark",
@@ -558,10 +588,16 @@ const projects = {
     {
       name: "Muscle-Fatigue Forecasting & Ergonomic Risk Analysis",
       category: "Data Analysis",
+      filterGroup: "Full-Stack & Data",
       url:
         "https://colab.research.google.com/drive/1Haqvf2EWBvjq3rWQarEdrGsV0VN1h-6C?usp=sharing",
       description:
         "Analyzed surface electromyography (sEMG) sensor data to assess muscle fatigue patterns. Implemented Butterworth band-pass (20-450 Hz) and 50 Hz notch filters, extracted RMS features across 250 ms windows, verified stationarity via ADF testing, and fitted ARIMA models selected by AIC to forecast fatigue thresholds.",
+      highlights: [
+        "Filtered raw sEMG signals with Butterworth band-pass (20-450 Hz) and 50 Hz notch filters",
+        "Extracted RMS features over 250 ms windows and validated series stationarity with ADF tests",
+        "Selected and fitted ARIMA forecasting models by AIC to predict ergonomic fatigue thresholds",
+      ],
       languages: [
         {
           name: "Python",

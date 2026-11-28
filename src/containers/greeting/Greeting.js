@@ -4,7 +4,7 @@ import SocialMedia from "../../components/socialMedia/SocialMedia";
 import { greeting } from "../../portfolio";
 import { Fade } from "react-reveal";
 import { useHistory } from "react-router-dom";
-import FeelingProud from "./FeelingProud";
+import HeroSecurityImg from "./HeroSecurityImg";
 
 export default function Greeting(props) {
   const theme = props.theme;
@@ -33,13 +33,13 @@ export default function Greeting(props) {
             </h1>
           </Fade>
 
-          <Fade bottom duration={900} distance="24px" delay={100}>
+          <Fade bottom duration={900} distance="24px" delay={80}>
             <p className="greeting-name" style={{ color: theme.text }}>
               I'm <span className="accent-text">{greeting.full_name}</span>
             </p>
           </Fade>
 
-          <Fade bottom duration={900} distance="24px" delay={200}>
+          <Fade bottom duration={900} distance="24px" delay={160}>
             <div className="greeting-intro">
               <p className="greeting-role">{greeting.subTitle}</p>
               {greeting.tagline && (
@@ -48,42 +48,55 @@ export default function Greeting(props) {
             </div>
           </Fade>
 
-          <Fade bottom duration={900} distance="24px" delay={300}>
+          <Fade bottom duration={900} distance="24px" delay={240}>
             <div className="greeting-social">
               <SocialMedia />
             </div>
           </Fade>
 
-          <Fade bottom duration={900} distance="24px" delay={400}>
+          <Fade bottom duration={900} distance="24px" delay={300}>
             <div className="greeting-actions">
               <button
+                type="button"
                 className="button btn-primary"
                 onClick={() => history.push("/projects")}
               >
                 View Projects <span className="btn-arrow">→</span>
               </button>
-              <a
-                className="button btn-outline"
-                href={greeting.resumeLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                See Resume
-              </a>
+              {props.onOpenResume ? (
+                <button
+                  type="button"
+                  className="button btn-outline"
+                  onClick={props.onOpenResume}
+                >
+                  <i className="fas fa-file-alt" aria-hidden="true"></i>
+                  Preview Resume
+                </button>
+              ) : (
+                <a
+                  className="button btn-outline"
+                  href={greeting.resumeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  See Resume
+                </a>
+              )}
             </div>
           </Fade>
         </div>
 
         <div className="greeting-image-div">
-          <Fade right duration={1400} distance="40px">
-            <div className="greeting-image-float">
-              <FeelingProud theme={theme} />
+          <Fade right duration={1100} distance="30px">
+            <div className="hero-visual-wrap">
+              <HeroSecurityImg theme={theme} />
             </div>
           </Fade>
         </div>
       </div>
 
       <button
+        type="button"
         className="scroll-cue"
         onClick={scrollToSkills}
         aria-label="Scroll to what I do"

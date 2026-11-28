@@ -35,14 +35,20 @@ export const GlobalStyles = createGlobalStyle`
   body > #root {
     width: 100%;
     min-width: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
   body {
     overflow-x: hidden;
-    align-items: center;
-    background: ${({ theme }) => theme.body};
+    min-height: 100vh;
+    background-color: ${({ theme }) => theme.body};
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(227, 64, 95, 0.08), transparent 34%),
+      radial-gradient(circle at 88% 20%, rgba(56, 189, 248, 0.05), transparent 30%);
     color: ${({ theme }) => theme.text};
-    display: flex;
+    display: block;
     font-family: var(--font-sans);
-    transition: all 0.25s linear;
+    transition: background-color 0.25s linear, color 0.25s linear;
   }`;

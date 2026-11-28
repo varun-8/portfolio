@@ -51,7 +51,12 @@ function CertificationCard(props) {
             {certificate.subtitle}
           </h3>
           <span className="cert-link-text">
-            View credential <span className="cert-arrow">→</span>
+            {certificate.subtitle &&
+            certificate.subtitle.toLowerCase().includes("course completed") &&
+            certificate.certificate_link === "https://www.anthropic.com/"
+              ? "Course details"
+              : "View credential"}{" "}
+            <span className="cert-arrow">→</span>
           </span>
         </div>
       </a>

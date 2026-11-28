@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, HashRouter } from "react-router-dom";
+import { Route, Switch, HashRouter, Redirect } from "react-router-dom";
 import Home from "../pages/home/HomeComponent";
 import Splash from "../pages/splash/Splash";
 import Education from "../pages/education/EducationComponent";
@@ -9,160 +9,53 @@ import Projects from "../pages/projects/Projects";
 import { settings } from "../portfolio.js";
 import ScrollToTop from "../components/scrollToTop/ScrollToTop";
 
-export default function Main(propss) {
-  if (settings.isSplash) {
-    return (
-      <div>
-        <HashRouter basename="/">
-          <ScrollToTop />
-          <Switch>
-            <Route
-              path="/"
-              exact
-              render={(props) => (
-                <Splash
-                  {...props}
-                  theme={propss.theme}
-                  setTheme={propss.setTheme}
-                />
-              )}
-            />
-            <Route
-              path="/home"
-              render={(props) => (
-                <Home
-                  {...props}
-                  theme={propss.theme}
-                  setTheme={propss.setTheme}
-                />
-              )}
-            />
-            <Route
-              path="/experience"
-              exact
-              render={(props) => (
-                <Experience
-                  {...props}
-                  theme={propss.theme}
-                  setTheme={propss.setTheme}
-                />
-              )}
-            />
-            <Route
-              path="/education"
-              render={(props) => (
-                <Education
-                  {...props}
-                  theme={propss.theme}
-                  setTheme={propss.setTheme}
-                />
-              )}
-            />
-            <Route
-              path="/contact"
-              render={(props) => (
-                <Contact
-                  {...props}
-                  theme={propss.theme}
-                  setTheme={propss.setTheme}
-                />
-              )}
-            />
-            <Route
-              path="/splash"
-              render={(props) => (
-                <Splash
-                  {...props}
-                  theme={propss.theme}
-                  setTheme={propss.setTheme}
-                />
-              )}
-            />
-            <Route
-              path="/projects"
-              render={(props) => (
-                <Projects
-                  {...props}
-                  theme={propss.theme}
-                  setTheme={propss.setTheme}
-                />
-              )}
-            />
-          </Switch>
-        </HashRouter>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <HashRouter basename="/">
-          <ScrollToTop />
-          <Switch>
-            <Route
-              path="/"
-              exact
-              render={(props) => (
-                <Home
-                  {...props}
-                  theme={propss.theme}
-                  setTheme={propss.setTheme}
-                />
-              )}
-            />
-            <Route
-              path="/home"
-              render={(props) => (
-                <Home
-                  {...props}
-                  theme={propss.theme}
-                  setTheme={propss.setTheme}
-                />
-              )}
-            />
-            <Route
-              path="/experience"
-              exact
-              render={(props) => (
-                <Experience
-                  {...props}
-                  theme={propss.theme}
-                  setTheme={propss.setTheme}
-                />
-              )}
-            />
-            <Route
-              path="/education"
-              render={(props) => (
-                <Education
-                  {...props}
-                  theme={propss.theme}
-                  setTheme={propss.setTheme}
-                />
-              )}
-            />
-            <Route
-              path="/contact"
-              render={(props) => (
-                <Contact
-                  {...props}
-                  theme={propss.theme}
-                  setTheme={propss.setTheme}
-                />
-              )}
-            />
-            <Route
-              path="/projects"
-              render={(props) => (
-                <Projects
-                  {...props}
-                  theme={propss.theme}
-                  setTheme={propss.setTheme}
-                />
-              )}
-            />
-          </Switch>
-        </HashRouter>
-      </div>
-    );
-  }
+export default function Main({ theme, setTheme, onOpenResume }) {
+  const sharedProps = { theme, setTheme, onOpenResume };
+
+  return (
+    <HashRouter basename="/">
+      <ScrollToTop />
+      <Switch>
+        <Route
+          path="/"
+          exact
+          render={(props) =>
+            settings.isSplash ? (
+              <Splash {...props} {...sharedProps} />
+            ) : (
+              <Home {...props} {...sharedProps} />
+            )
+          }
+        />
+        <Route
+          path="/home"
+          render={(props) => <Home {...props} {...sharedProps} />}
+        />
+        <Route
+          path="/experience"
+          exact
+          render={(props) => <Experience {...props} {...sharedProps} />}
+        />
+        <Route
+          path="/education"
+          render={(props) => <Education {...props} {...sharedProps} />}
+        />
+        <Route
+          path="/contact"
+          render={(props) => <Contact {...props} {...sharedProps} />}
+        />
+        <Route
+          path="/projects"
+          render={(props) => <Projects {...props} {...sharedProps} />}
+        />
+        {settings.isSplash && (
+          <Route
+            path="/splash"
+            render={(props) => <Splash {...props} {...sharedProps} />}
+          />
+        )}
+        <Redirect to="/home" />
+      </Switch>
+    </HashRouter>
+  );
 }

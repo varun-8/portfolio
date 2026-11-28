@@ -4,19 +4,25 @@
 }
 
 .basic-projects {
-  margin-left: 5%;
-  margin-right: 5%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
 }
 
 .projects-heading-div {
   display: flex;
+  align-items: center;
+  gap: 32px;
 }
 
 .projects-heading-div > * {
   flex: 1;
+  min-width: 0;
 }
 
 .projects-heading-img-div {
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -25,44 +31,122 @@
   text-align: center;
 }
 
-.projects-heading-img-div > * {
-  max-width: 100%;
+.projects-heading-img-div > *,
+.projects-heading-img-div svg {
+  width: 100%;
+  max-width: 480px;
   height: auto;
+  display: block;
 }
 
-.projects-heading-text {
-  font-size: 56px;
+.page-eyebrow {
+  display: inline-block;
   font-family: var(--font-sans);
-  font-weight: 500;
-  line-height: 1.1;
-  text-align: center;
-  margin-top: 80px;
-}
-
-.projects-heading-sub-text {
-  font-size: 30px;
-  font-family: var(--font-sans);
-  text-align: center;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
   margin-bottom: 10px;
 }
 
+.projects-heading-text {
+  font-size: 54px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  margin: 0 0 16px;
+}
+
+.projects-heading-sub-text {
+  font-size: 26px;
+  font-family: var(--font-sans);
+  text-align: center;
+  margin: 0 0 12px;
+}
+
 .projects-header-detail-text {
-  font-size: 20px;
-  line-height: 30px;
-  margin-top: 0px;
-  margin-left: 20px;
-  margin-right: 20px;
+  font-size: 18px;
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 520px;
+  font-family: var(--font-sans);
+  font-weight: 400;
+}
+
+/* ---------- Project category filter pills ---------- */
+.projects-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 42px auto 0;
+  padding: 0 24px;
+}
+
+.projects-filter-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px 9px 16px;
+  border-radius: 999px;
+  cursor: pointer;
   font-family: var(--font-sans);
   font-weight: 500;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+  transition: color 0.25s ease, background-color 0.25s ease,
+    border-color 0.25s ease, transform 0.25s ease;
+}
+
+.projects-filter-tab:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.projects-filter-tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.projects-filter-count {
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--surface);
+}
+
+.projects-filter-tab.active {
+  color: #ffffff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.projects-filter-tab.active .projects-filter-count {
+  color: var(--accent);
+  background: #ffffff;
 }
 
 .repo-cards-div-main {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
   gap: 24px;
+  width: 100%;
   max-width: 1240px;
-  margin: 50px auto 0;
+  margin: 34px auto 0;
   padding: 0 24px;
+  animation: page-in 0.35s ease backwards;
 }
 
 .repo-cards-div-main > * {
@@ -75,40 +159,37 @@
 
 @media (max-width: 1380px) {
   .projects-heading-text {
-    font-size: 50px;
-    margin-top: 80px;
-  }
-  .projects-heading-sub-text {
-    font-size: 25px;
+    font-size: 48px;
   }
 }
 
 @media (max-width: 768px) {
-  .projects-heading-text {
-    font-size: 30px;
-    margin-top: 20px;
+  .basic-projects {
+    padding: 16px 16px 0;
   }
 
-  .projects-heading-sub-text {
-    font-size: 20px;
+  .projects-heading-text {
+    font-size: 34px;
   }
 
   .projects-heading-div {
     flex-direction: column;
+    gap: 18px;
   }
 
   .projects-header-detail-text {
     font-size: 16px;
-    margin-right: 0px;
-    margin-left: 0px;
-    line-height: normal;
-    text-align: center;
+  }
+
+  .projects-filter-tabs {
+    margin-top: 28px;
+    padding: 0 16px;
   }
 
   .repo-cards-div-main {
     grid-template-columns: minmax(0, 1fr);
     padding: 0 16px;
-    margin-top: 30px;
+    margin-top: 24px;
   }
 }
 
